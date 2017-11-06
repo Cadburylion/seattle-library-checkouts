@@ -9,9 +9,26 @@ ul, li {
   padding: 0;
 }
 
-.checkbox-container {
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: blue;
+  cursor: pointer;
+}
+
+.type-container {
+  width: 200px;
   display: grid;
-  
+  grid-template-rows: 50px 50px;
+  grid-template-columns: 100px 100px;
+
+  margin: 0 auto;
+}
+
+.selected {
+  background: lightblue;
 }
 
 .slider {

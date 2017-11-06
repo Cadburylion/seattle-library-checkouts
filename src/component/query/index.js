@@ -7,20 +7,25 @@ export default class Query extends Component {
     super(props)
     this.state={
       checkouts: null,
-      type: '',
+      type: null,
       month: '1',
       year: '2017',
       fetching: false,
       quantity: 10,
+      book: true,
+      ebook: false,
+      magazine: false,
+      song: false,
     }
-    this.queryAPI = this.queryAPI.bind(this)
     this.typeSelect = this.typeSelect.bind(this)
     this.yearSelect = this.yearSelect.bind(this)
     this.monthSelect = this.monthSelect.bind(this)
+    this.classToggle = this.classToggle.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
     this.quantitySelect = this.quantitySelect.bind(this)
   }
 
-  queryAPI(){
+  handleSearch(){
     this.setState({
       fetching: true,
     })
@@ -34,10 +39,15 @@ export default class Query extends Component {
     })
   }
 
-  typeSelect(e){
+  typeSelect(materialType){
     this.setState({
-      type: e.target.value,
+      type: materialType,
     })
+  }
+
+  handleSelect(classToToggle, type){
+    this.classToggle(classToToggle)
+    this.typeSelect(type)
   }
 
   yearSelect(e){
@@ -58,34 +68,34 @@ export default class Query extends Component {
     })
   }
 
-  render(){
-    // <button onClick={() => this.queryAPI('BOOK')}> Books </button>
-    // <button onClick={() => this.queryAPI('EBOOK')}> Ebooks </button>
-    // <button onClick={() => this.queryAPI('MAGAZINE')}> Magazines </button>
-    // <button onClick={() => this.queryAPI('SONG')}> Songs </button>
+  classToggle(selected){
+    this.setState(prevState => ({
+      bookSelected: false,
+      ebookSelected: false,
+      magazineSelected: false,
+      songSelected: false,
+      [selected]: !prevState[selected],
+    }))
+  }
 
-  //   <label htmlFor='book'>Book</label>
-  //   <input type='checkbox' name='book' value='BOOK' onClick={this.typeSelect}/>
-  //
-  //   <label htmlFor='ebook'>Ebook</label>
-  //   <input type='checkbox' name='ebook' value='EBOOK' onClick={this.typeSelect}/>
-  //
-  //   <label htmlFor='magazine'>Magazine</label>
-  //   <input type='checkbox' name='magazine' value='MAGAZINE' onClick={this.typeSelect}/>
-  //
-  //   <label htmlFor='song'>Song</label>
-  //   <input type='checkbox' name='song' value='SONG' onClick={this.typeSelect}/>
-  
+  render(){
     console.log('query state: ', this.state)
     return(
       <div>
 
-        <button onClick={this.queryAPI}> Search </button>
+        <button onClick={this.handleSearch}> Search </button>
         <form>
 
           <div className='type-container'>
+            <div className={this.state.bookSelected ? 'btn book selected' : 'btn book'}
+              onClick={() => this.handleSelect('bookSelected', 'BOOK')}>Book</div>
+            <div className={this.state.ebookSelected ? 'btn ebook selected' : 'btn ebook'}
+              onClick={() => this.handleSelect('ebookSelected', 'EBOOK')}>Ebook</div>
+            <div className={this.state.magazineSelected ? 'btn magazine selected' : 'btn magazine'}
+              onClick={() => this.handleSelect('magazineSelected', 'MAGAZINE')}>Magazine</div>
+            <div className={this.state.songSelected ? 'btn song selected' : 'btn song'}
+              onClick={() => this.handleSelect('songSelected', 'SONG')}>Song</div>
           </div>
-
 
           <select defaultValue={this.state.year} onChange={this.yearSelect}>
             <option value='2010'>2010</option>
@@ -97,7 +107,6 @@ export default class Query extends Component {
             <option value='2016'>2016</option>
             <option value='2017' name='default-year'>2017</option>
           </select>
-
 
 
           <select defaultValue={this.state.month} onChange={this.monthSelect}>
