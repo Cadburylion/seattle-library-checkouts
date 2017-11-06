@@ -1,4 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 ul, li {
   list-style: none;
   padding: 0;
+}
+
+.checkbox-container {
+  display: grid;
+  
+}
+
+.slider {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.loader {
+  display: inline-block;
+  height: 19px;
+  width: 19px;
+  border-radius: 50%;
+  border: 4px solid lightgrey;
+  border-top: 4px solid blue;
+  animation: loading-text-spin infinite 2s linear;
+}
+
+@keyframes loading-text-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
