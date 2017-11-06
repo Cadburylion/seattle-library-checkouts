@@ -70,10 +70,10 @@ export default class Query extends Component {
 
   classToggle(selected){
     this.setState(prevState => ({
-      bookSelected: false,
-      ebookSelected: false,
-      magazineSelected: false,
-      songSelected: false,
+      book: false,
+      ebook: false,
+      magazine: false,
+      song: false,
       [selected]: !prevState[selected],
     }))
   }
@@ -87,14 +87,14 @@ export default class Query extends Component {
         <form>
 
           <div className='type-container'>
-            <div className={this.state.bookSelected ? 'btn book selected' : 'btn book'}
-              onClick={() => this.handleSelect('bookSelected', 'BOOK')}>Book</div>
-            <div className={this.state.ebookSelected ? 'btn ebook selected' : 'btn ebook'}
-              onClick={() => this.handleSelect('ebookSelected', 'EBOOK')}>Ebook</div>
-            <div className={this.state.magazineSelected ? 'btn magazine selected' : 'btn magazine'}
-              onClick={() => this.handleSelect('magazineSelected', 'MAGAZINE')}>Magazine</div>
-            <div className={this.state.songSelected ? 'btn song selected' : 'btn song'}
-              onClick={() => this.handleSelect('songSelected', 'SONG')}>Song</div>
+            <div className={this.state.book ? 'btn book selected' : 'btn book'}
+              onClick={() => this.handleSelect('book', 'BOOK')}>Book</div>
+            <div className={this.state.ebook ? 'btn ebook selected' : 'btn ebook'}
+              onClick={() => this.handleSelect('ebook', 'EBOOK')}>Ebook</div>
+            <div className={this.state.magazine ? 'btn magazine selected' : 'btn magazine'}
+              onClick={() => this.handleSelect('magazine', 'MAGAZINE')}>Magazine</div>
+            <div className={this.state.song ? 'btn song selected' : 'btn song'}
+              onClick={() => this.handleSelect('song', 'SONG')}>Song</div>
           </div>
 
           <select defaultValue={this.state.year} onChange={this.yearSelect}>
@@ -107,7 +107,6 @@ export default class Query extends Component {
             <option value='2016'>2016</option>
             <option value='2017' name='default-year'>2017</option>
           </select>
-
 
           <select defaultValue={this.state.month} onChange={this.monthSelect}>
             <option value='1'>January</option>
@@ -124,6 +123,7 @@ export default class Query extends Component {
             <option value='12'>December</option>
           </select>
         </form>
+        
         <div className='slider'>
           <QuantitySlider
             quantity={this.state.quantity}
