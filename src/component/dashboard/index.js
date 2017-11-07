@@ -11,7 +11,7 @@ export default class Dashboard extends Component {
   render(){
     return(
       <main>
-        <h1>Soli Deo Gloria</h1>
+        <h1>Seattle Reads</h1>
         <Query />
       </main>
     )

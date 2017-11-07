@@ -1,22 +1,21 @@
 import React, {Component} from 'react'
-import QuantitySlider from '../slider/index.js'
 import Filter from '../filter/index.js'
-import './style.css'
+import Checkouts from '../checkouts/index.js'
 
 export default class Query extends Component {
   constructor(props){
     super(props)
     this.state={
       checkouts: null,
-      type: null,
+      type: 'BOOK',
       month: '1',
       year: '2017',
-      fetching: false,
       quantity: 10,
       book: true,
+      song: false,
       ebook: false,
       magazine: false,
-      song: false,
+      fetching: false,
     }
     this.typeSelect = this.typeSelect.bind(this)
     this.yearSelect = this.yearSelect.bind(this)
@@ -25,6 +24,10 @@ export default class Query extends Component {
     this.handleSearch = this.handleSearch.bind(this)
     this.handleSelect = this.handleSelect.bind(this)
     this.quantitySelect = this.quantitySelect.bind(this)
+  }
+
+  componentDidMount() {
+    // this.state.checkouts ? undefined : this.handleSearch()
   }
 
   handleSearch(){
@@ -41,15 +44,25 @@ export default class Query extends Component {
     })
   }
 
+  handleSelect(classToToggle, type){
+    this.classToggle(classToToggle)
+    this.typeSelect(type)
+  }
+
+  classToggle(selected){
+    this.setState(prevState => ({
+      book: false,
+      ebook: false,
+      magazine: false,
+      song: false,
+      [selected]: !prevState[selected],
+    }))
+  }
+
   typeSelect(materialType){
     this.setState({
       type: materialType,
     })
-  }
-
-  handleSelect(classToToggle, type){
-    this.classToggle(classToToggle)
-    this.typeSelect(type)
   }
 
   yearSelect(e){
@@ -70,50 +83,34 @@ export default class Query extends Component {
     })
   }
 
-  classToggle(selected){
-    this.setState(prevState => ({
-      book: false,
-      ebook: false,
-      magazine: false,
-      song: false,
-      [selected]: !prevState[selected],
-    }))
-  }
-
   render(){
     console.log('query state: ', this.state)
     return(
       <div>
+
         <Filter
-          handleSelect={this.handleSelect}
-          monthSelect={this.monthSelect}
-          yearSelect={this.yearSelect}
           year={this.state.year}
           month={this.state.month}
           book={this.state.book}
           ebook={this.state.ebook}
           magazine={this.state.magazine}
           song={this.state.song}
+          quantity={this.state.quantity}
+          yearSelect={this.yearSelect}
+          monthSelect={this.monthSelect}
+          handleSelect={this.handleSelect}
+          quantitySelect={this.quantitySelect}
+          handleSearch={this.handleSearch}
+          fetching={this.state.fetching}
         />
-        <button onClick={this.handleSearch}> Search </button>
-
-        <div className='slider'>
-          <QuantitySlider
-            quantity={this.state.quantity}
-            handleChange={this.quantitySelect}/>
-        </div>
-
-        {this.state.fetching ?
-          <span className='loader'></span>
-          : undefined
-        }
 
         {this.state.checkouts ?
-          <ul>
-            {this.state.checkouts.map((item, i) => <li key={i}>{item.title}</li>)}
-          </ul>
+          <Checkouts
+            checkouts={this.state.checkouts}
+          />
           : undefined
         }
+
       </div>
     )
   }
