@@ -1,4 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 ul, li {
   list-style: none;
   padding: 0;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: blue;
+  cursor: pointer;
+}
+
+.type-container {
+  width: 200px;
+  display: grid;
+  grid-template-rows: 50px 50px;
+  grid-template-columns: 100px 100px;
+
+  margin: 0 auto;
+}
+
+.selected {
+  background: lightblue;
+}
+
+.slider {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.loader {
+  display: inline-block;
+  height: 19px;
+  width: 19px;
+  border-radius: 50%;
+  border: 4px solid lightgrey;
+  border-top: 4px solid blue;
+  animation: loading-text-spin infinite 2s linear;
+}
+
+@keyframes loading-text-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
