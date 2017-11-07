@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import QuantitySlider from '../slider/index.js'
+import Filter from '../filter/index.js'
 import './style.css'
 
 export default class Query extends Component {
@@ -22,6 +23,7 @@ export default class Query extends Component {
     this.monthSelect = this.monthSelect.bind(this)
     this.classToggle = this.classToggle.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
     this.quantitySelect = this.quantitySelect.bind(this)
   }
 
@@ -82,48 +84,19 @@ export default class Query extends Component {
     console.log('query state: ', this.state)
     return(
       <div>
-
+        <Filter
+          handleSelect={this.handleSelect}
+          monthSelect={this.monthSelect}
+          yearSelect={this.yearSelect}
+          year={this.state.year}
+          month={this.state.month}
+          book={this.state.book}
+          ebook={this.state.ebook}
+          magazine={this.state.magazine}
+          song={this.state.song}
+        />
         <button onClick={this.handleSearch}> Search </button>
-        <form>
 
-          <div className='type-container'>
-            <div className={this.state.book ? 'btn book selected' : 'btn book'}
-              onClick={() => this.handleSelect('book', 'BOOK')}>Book</div>
-            <div className={this.state.ebook ? 'btn ebook selected' : 'btn ebook'}
-              onClick={() => this.handleSelect('ebook', 'EBOOK')}>Ebook</div>
-            <div className={this.state.magazine ? 'btn magazine selected' : 'btn magazine'}
-              onClick={() => this.handleSelect('magazine', 'MAGAZINE')}>Magazine</div>
-            <div className={this.state.song ? 'btn song selected' : 'btn song'}
-              onClick={() => this.handleSelect('song', 'SONG')}>Song</div>
-          </div>
-
-          <select defaultValue={this.state.year} onChange={this.yearSelect}>
-            <option value='2010'>2010</option>
-            <option value='2011'>2011</option>
-            <option value='2012'>2012</option>
-            <option value='2013'>2013</option>
-            <option value='2014'>2014</option>
-            <option value='2015'>2015</option>
-            <option value='2016'>2016</option>
-            <option value='2017' name='default-year'>2017</option>
-          </select>
-
-          <select defaultValue={this.state.month} onChange={this.monthSelect}>
-            <option value='1'>January</option>
-            <option value='2'>February</option>
-            <option value='3'>March</option>
-            <option value='4'>April</option>
-            <option value='5'>May</option>
-            <option value='6'>June</option>
-            <option value='7'>July</option>
-            <option value='8'>August</option>
-            <option value='9'>September</option>
-            <option value='10'>October</option>
-            <option value='11'>November</option>
-            <option value='12'>December</option>
-          </select>
-        </form>
-        
         <div className='slider'>
           <QuantitySlider
             quantity={this.state.quantity}
