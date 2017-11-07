@@ -44,15 +44,25 @@ export default class Query extends Component {
     })
   }
 
+  handleSelect(classToToggle, type){
+    this.classToggle(classToToggle)
+    this.typeSelect(type)
+  }
+
+  classToggle(selected){
+    this.setState(prevState => ({
+      book: false,
+      ebook: false,
+      magazine: false,
+      song: false,
+      [selected]: !prevState[selected],
+    }))
+  }
+
   typeSelect(materialType){
     this.setState({
       type: materialType,
     })
-  }
-
-  handleSelect(classToToggle, type){
-    this.classToggle(classToToggle)
-    this.typeSelect(type)
   }
 
   yearSelect(e){
@@ -71,16 +81,6 @@ export default class Query extends Component {
     this.setState({
       quantity: value,
     })
-  }
-
-  classToggle(selected){
-    this.setState(prevState => ({
-      book: false,
-      ebook: false,
-      magazine: false,
-      song: false,
-      [selected]: !prevState[selected],
-    }))
   }
 
   render(){

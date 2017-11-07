@@ -5,13 +5,13 @@ import './style.css'
 let Filter = (props) => (
   <div className='filters-container'>
     <div className={props.book ? 'btn book selected' : 'btn book'}
-      onClick={() => props.handleSelect('book', 'BOOK')}>Book</div>
+      onClick={() => props.handleSelect('book', 'BOOK')}>Books</div>
     <div className={props.ebook ? 'btn ebook selected' : 'btn ebook'}
-      onClick={() => props.handleSelect('ebook', 'EBOOK')}>Ebook</div>
+      onClick={() => props.handleSelect('ebook', 'EBOOK')}>Ebooks</div>
     <div className={props.magazine ? 'btn magazine selected' : 'btn magazine'}
-      onClick={() => props.handleSelect('magazine', 'MAGAZINE')}>Magazine</div>
+      onClick={() => props.handleSelect('magazine', 'MAGAZINE')}>Magazines</div>
     <div className={props.song ? 'btn song selected' : 'btn song'}
-      onClick={() => props.handleSelect('song', 'SONG')}>Song</div>
+      onClick={() => props.handleSelect('song', 'SONG')}>Songs</div>
 
       <select className='month-list' defaultValue={props.month} onChange={props.monthSelect}>
         <option value='1'>January</option>
@@ -46,7 +46,7 @@ let Filter = (props) => (
       </div>
 
       <button className='search-button' onClick={props.handleSearch}> Search </button>
-      
+
       {props.fetching ?
         <span className='loader'></span>
         : undefined
