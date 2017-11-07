@@ -2,6 +2,6 @@ main {
   width: 80%;
   max-width: 1280px;
   min-height: calc(100vh - 192px);
-  border: 1px solid #61DAFB;
+  /*border: 1px solid #61DAFB;*/
   margin: 0 auto;
 }
