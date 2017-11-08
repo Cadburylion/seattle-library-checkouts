@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
-body:before {
+/*body:before {
   content: "";
   display: block;
   position: fixed;
@@ -15,16 +16,12 @@ body:before {
   -o-background-size: cover;
   background-size: cover;
   box-shadow: inset 0 0 0 1000px rgba(51,122,183,.8);
-}
+}*/
 
 .App {
   text-align: center;
   min-height: 100vh;
-  /*background-image: url('./assets/space-needle.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 14% -40px;
-  box-shadow: inset 0 0 0 1000px rgba(51,122,183,.8);*/
+  background: #337AB7;
 }
 
 .App-logo {

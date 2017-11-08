@@ -1,17 +1,43 @@
 import React from 'react'
 import QuantitySlider from '../slider/index.js'
+import SearchButton from '../search-button/index.js'
+import CheckoutTypeButton from '../checkout-type-button/index.js'
 import './style.css'
 
 let Filter = (props) => (
   <div className='filters-container'>
-    <div className={props.typeSelected.book ? 'btn book selected' : 'btn book'}
-      onClick={() => props.handleSelect('book', 'BOOK')}>Books</div>
-    <div className={props.typeSelected.ebook ? 'btn ebook selected' : 'btn ebook'}
-      onClick={() => props.handleSelect('ebook', 'EBOOK')}>Ebooks</div>
-    <div className={props.typeSelected.magazine ? 'btn magazine selected' : 'btn magazine'}
-      onClick={() => props.handleSelect('magazine', 'MAGAZINE')}>Magazines</div>
-    <div className={props.typeSelected.song ? 'btn song selected' : 'btn song'}
-      onClick={() => props.handleSelect('song', 'SONG')}>Songs</div>
+
+    <CheckoutTypeButton
+      typeSelected={props.typeSelected.book}
+      handleSelect={props.handleSelect}
+      classType={'book'}
+      materialType={'BOOK'}
+      buttonName={'Books'}
+    />
+
+    <CheckoutTypeButton
+      typeSelected={props.typeSelected.ebook}
+      handleSelect={props.handleSelect}
+      classType={'ebook'}
+      materialType={'EBOOK'}
+      buttonName={'Ebooks'}
+    />
+
+    <CheckoutTypeButton
+      typeSelected={props.typeSelected.magazine}
+      handleSelect={props.handleSelect}
+      classType={'magazine'}
+      materialType={'MAGAZINE'}
+      buttonName={'Magazines'}
+    />
+
+    <CheckoutTypeButton
+      typeSelected={props.typeSelected.song}
+      handleSelect={props.handleSelect}
+      classType={'song'}
+      materialType={'SONG'}
+      buttonName={'Songs'}
+    />
 
     <select className='month-list' defaultValue={props.options.month} onChange={props.monthSelect}>
       <option value='1'>January</option>
@@ -45,7 +71,7 @@ let Filter = (props) => (
         handleChange={props.quantitySelect}/>
     </div>
 
-    <button className='search-button' onClick={props.handleSearch}> Search </button>
+    <SearchButton buttonName={'Search'} handleSearch={props.handleSearch} />
 
     {props.fetching ?
       <span className='loader'></span>
@@ -53,5 +79,16 @@ let Filter = (props) => (
     }
   </div>
 )
+// <button className='search-button' onClick={props.handleSearch}> Search </button>
+
+// <div className={props.typeSelected.book ? 'btn book selected' : 'btn book'}
+//   onClick={() => props.handleSelect('book', 'BOOK')}>Books</div>
+// <div className={props.typeSelected.ebook ? 'btn ebook selected' : 'btn ebook'}
+//   onClick={() => props.handleSelect('ebook', 'EBOOK')}>Ebooks</div>
+// <div className={props.typeSelected.magazine ? 'btn magazine selected' : 'btn magazine'}
+//   onClick={() => props.handleSelect('magazine', 'MAGAZINE')}>Magazines</div>
+// <div className={props.typeSelected.song ? 'btn song selected' : 'btn song'}
+//   onClick={() => props.handleSelect('song', 'SONG')}>Songs</div>
+
 
 export default Filter
