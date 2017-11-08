@@ -4,16 +4,16 @@ import './style.css'
 
 let Filter = (props) => (
   <div className='filters-container'>
-    <div className={props.book ? 'btn book selected' : 'btn book'}
+    <div className={props.typeSelected.book ? 'btn book selected' : 'btn book'}
       onClick={() => props.handleSelect('book', 'BOOK')}>Books</div>
-    <div className={props.ebook ? 'btn ebook selected' : 'btn ebook'}
+    <div className={props.typeSelected.ebook ? 'btn ebook selected' : 'btn ebook'}
       onClick={() => props.handleSelect('ebook', 'EBOOK')}>Ebooks</div>
-    <div className={props.magazine ? 'btn magazine selected' : 'btn magazine'}
+    <div className={props.typeSelected.magazine ? 'btn magazine selected' : 'btn magazine'}
       onClick={() => props.handleSelect('magazine', 'MAGAZINE')}>Magazines</div>
-    <div className={props.song ? 'btn song selected' : 'btn song'}
+    <div className={props.typeSelected.song ? 'btn song selected' : 'btn song'}
       onClick={() => props.handleSelect('song', 'SONG')}>Songs</div>
 
-    <select className='month-list' defaultValue={props.month} onChange={props.monthSelect}>
+    <select className='month-list' defaultValue={props.options.month} onChange={props.monthSelect}>
       <option value='1'>January</option>
       <option value='2'>February</option>
       <option value='3'>March</option>
@@ -28,7 +28,7 @@ let Filter = (props) => (
       <option value='12'>December</option>
     </select>
 
-    <select className='year-list' defaultValue={props.year} onChange={props.yearSelect}>
+    <select className='year-list' defaultValue={props.options.year} onChange={props.yearSelect}>
       <option value='2010'>2010</option>
       <option value='2011'>2011</option>
       <option value='2012'>2012</option>
@@ -41,7 +41,7 @@ let Filter = (props) => (
 
     <div className='slider'>
       <QuantitySlider
-        quantity={props.quantity}
+        quantity={props.options.quantity}
         handleChange={props.quantitySelect}/>
     </div>
 
