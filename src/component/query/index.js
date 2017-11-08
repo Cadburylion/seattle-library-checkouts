@@ -17,7 +17,7 @@ export default class Query extends Component {
       magazine: false,
       fetching: false,
     }
-    this.typeSelect = this.typeSelect.bind(this)
+    this.typeSet = this.typeSet.bind(this)
     this.yearSelect = this.yearSelect.bind(this)
     this.monthSelect = this.monthSelect.bind(this)
     this.classToggle = this.classToggle.bind(this)
@@ -34,6 +34,7 @@ export default class Query extends Component {
     this.setState({
       fetching: true,
     })
+
     fetch(`https://data.seattle.gov/resource/tjb6-zsmc.json?$order=checkouts DESC&materialtype=${this.state.type}&$limit=${this.state.quantity}&checkoutyear=${this.state.year}&checkoutmonth=${this.state.month}`)
     .then((response) => response.json())
     .then((data) => {
@@ -46,7 +47,7 @@ export default class Query extends Component {
 
   handleSelect(classToToggle, type){
     this.classToggle(classToToggle)
-    this.typeSelect(type)
+    this.typeSet(type)
   }
 
   classToggle(selected){
@@ -55,13 +56,13 @@ export default class Query extends Component {
       ebook: false,
       magazine: false,
       song: false,
-      [selected]: !prevState[selected],
+      [selected]: true,
     }))
   }
 
-  typeSelect(materialType){
+  typeSet(materialType){
     this.setState({
-      type: materialType,
+      type: materialType
     })
   }
 
