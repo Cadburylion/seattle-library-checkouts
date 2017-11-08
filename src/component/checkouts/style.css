@@ -9,9 +9,18 @@
   grid-template-columns: 1fr 200px 1fr;
   align-items: center;
   padding: 5px;
+  color: white;
 }
 
 .checkout-title {
   display: flex;
   justify-content: center;
 }
+
+/*li {
+  background: #008CCA;
+}
+
+li:nth-child(odd) {
+  background: #337AB7;
+}*/

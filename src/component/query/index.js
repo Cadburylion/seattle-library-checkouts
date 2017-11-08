@@ -7,15 +7,19 @@ export default class Query extends Component {
     super(props)
     this.state={
       checkouts: null,
-      type: 'BOOK',
-      month: '1',
-      year: '2017',
-      quantity: 10,
-      book: true,
-      song: false,
-      ebook: false,
-      magazine: false,
       fetching: false,
+      options: {
+        type: 'BOOK',
+        month: '1',
+        year: '2017',
+        quantity: 10,
+      },
+      typeSelected: {
+        book: true,
+        song: false,
+        ebook: false,
+        magazine: false,
+      },
     }
     this.typeSet = this.typeSet.bind(this)
     this.yearSelect = this.yearSelect.bind(this)
@@ -35,7 +39,9 @@ export default class Query extends Component {
       fetching: true,
     })
 
-    fetch(`https://data.seattle.gov/resource/tjb6-zsmc.json?$order=checkouts DESC&materialtype=${this.state.type}&$limit=${this.state.quantity}&checkoutyear=${this.state.year}&checkoutmonth=${this.state.month}`)
+    let {options} = this.state
+
+    fetch(`https://data.seattle.gov/resource/tjb6-zsmc.json?$order=checkouts DESC&materialtype=${options.type}&$limit=${options.quantity}&checkoutyear=${options.year}&checkoutmonth=${options.month}`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({
@@ -51,37 +57,41 @@ export default class Query extends Component {
   }
 
   classToggle(selected){
-    this.setState(prevState => ({
-      book: false,
-      ebook: false,
-      magazine: false,
-      song: false,
-      [selected]: true,
-    }))
+    this.setState({
+      typeSelected: {
+        book: false,
+        ebooK: false,
+        magazine: false,
+        song: false,
+        [selected]: true,
+      }
+    })
   }
 
   typeSet(materialType){
-    this.setState({
-      type: materialType
-    })
+    this.setState(prevState => ({
+      options: {...prevState.options, type: materialType}
+    }))
   }
 
   yearSelect(e){
-    this.setState({
-      year: e.target.value,
-    })
+    let {value} = e.target
+    this.setState(prevState => ({
+      options: {...prevState.options, year: value}
+    }))
   }
 
   monthSelect(e){
-    this.setState({
-      month: e.target.value,
-    })
+    let {value} = e.target
+    this.setState(prevState => ({
+      options: {...prevState.options, month: value}
+    }))
   }
 
   quantitySelect(value){
-    this.setState({
-      quantity: value,
-    })
+    this.setState(prevState => ({
+      options: {...prevState.options, quantity: value}
+    }))
   }
 
   render(){
@@ -90,19 +100,15 @@ export default class Query extends Component {
       <div>
 
         <Filter
-          year={this.state.year}
-          month={this.state.month}
-          book={this.state.book}
-          ebook={this.state.ebook}
-          magazine={this.state.magazine}
-          song={this.state.song}
-          quantity={this.state.quantity}
+          options={this.state.options}
+          typeSelected={this.state.typeSelected}
+          fetching={this.state.fetching}
+
           yearSelect={this.yearSelect}
           monthSelect={this.monthSelect}
           handleSelect={this.handleSelect}
           quantitySelect={this.quantitySelect}
           handleSearch={this.handleSearch}
-          fetching={this.state.fetching}
         />
 
         {this.state.checkouts ?

@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
 .App {
   text-align: center;
+  min-height: 100vh;
+  background-image: url('./assets/space-needle.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 14% -40px;
+  box-shadow: inset 0 0 0 1000px rgba(51,122,183,.8);
 }
 
 .App-logo {
@@ -21,6 +29,7 @@
 .App-intro {
   font-size: large;
 }
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

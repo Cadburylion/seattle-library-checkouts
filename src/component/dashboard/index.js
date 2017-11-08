@@ -11,7 +11,7 @@ export default class Dashboard extends Component {
   render(){
     return(
       <main>
-        <h1>Seattle Reads</h1>
+        <h1 className='app-title'><span className='title-first'> Seattle </span> <span className='title-second'> Reads </span></h1>
         <Query />
       </main>
     )

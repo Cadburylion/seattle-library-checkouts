@@ -1,7 +1,24 @@
 main {
-  width: 80%;
+  width: 100%;
   max-width: 1280px;
-  min-height: calc(100vh - 192px);
-  /*border: 1px solid #61DAFB;*/
+  /*min-height: calc(100vh - 192px);*/
   margin: 0 auto;
+}
+
+.app-title {
+  font-family: 'Lobster', cursive;
+  font-size: 3em;
+  text-shadow: 1px 1px 2px black;
+  background: #337AB7;
+}
+
+.title-first {
+  color: #008CCA;
+  -webkit-text-stroke-color: #337AB7;
+}
+
+.title-second {
+  /*color: #337AB7;*/
+  color: #008CCA;
+  /*-webkit-text-stroke-color: #337DD7;*/
 }
