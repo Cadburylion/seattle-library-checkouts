@@ -1,13 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
+body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: url('./assets/space-needle.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(51,122,183,.8);
+}
+
 .App {
   text-align: center;
   min-height: 100vh;
-  background-image: url('./assets/space-needle.jpg');
+  /*background-image: url('./assets/space-needle.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 14% -40px;
-  box-shadow: inset 0 0 0 1000px rgba(51,122,183,.8);
+  box-shadow: inset 0 0 0 1000px rgba(51,122,183,.8);*/
 }
 
 .App-logo {
