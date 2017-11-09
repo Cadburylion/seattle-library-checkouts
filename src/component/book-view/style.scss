@@ -1,17 +1,53 @@
 @import '../../style/vars';
 
-.book-view-content {
-  // display: none;
-  // position: fixed;
-  // top: 61px;
-  // left: 0;
+.book-view-container {
+  display: grid;
+  grid-template-rows: repeat(4, 40px) auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "cover close"
+    "cover book-title"
+    "cover book-subtitle"
+    "cover book-author"
+    "book-description book-description";
+  align-items: center;
+  justify-items: left;
+  align-items: normal;
   min-height: calc(100vh - 61px);
-  // width: 100vw;
-  background: $color-primary;
   color: white;
-
+  background: $color-secondary;
+  padding: 10px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  border-top: 2px solid $color-white;
+  text-align: left;
 }
 
-.open {
-  display: block;
+.cover {
+  grid-area: cover;
+}
+
+.book-view-close {
+  grid-area: close;
+  justify-self: right;
+}
+
+.book-title {
+  grid-area: book-title;
+}
+
+.book-subtitle {
+  grid-area: book-subtitle;
+}
+
+.book-author {
+  grid-area: book-author;
+}
+
+.book-description {
+  grid-area: book-description;
+  padding-top: 10px;
+  border-top: 2px solid $color-white;
+  // text-align: justify;
+  line-height: 1.2em;
 }

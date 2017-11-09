@@ -167,15 +167,18 @@ export default class Query extends Component {
               : undefined
             }
           </div>
-        : undefined }
+        : undefined
+      }
 
-        <BookView
-          bookViewOpen={this.state.bookViewOpen}
-          bookSearchResult={this.state.bookSearchResult}
-          bookSearch={this.bookSearch}
-          bookViewToggle={this.bookViewToggle}
-        />
-
+        {this.state.bookViewOpen ?
+          <BookView
+            bookViewOpen={this.state.bookViewOpen}
+            bookSearchResult={this.state.bookSearchResult}
+            bookSearch={this.bookSearch}
+            bookViewToggle={this.bookViewToggle}
+          />
+          : undefined
+        }
       </div>
     )
   }
