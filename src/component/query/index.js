@@ -116,14 +116,18 @@ export default class Query extends Component {
 
   bookSearch(book){
     // window.open(`https://www.googleapis.com/books/v1/volumes?q=the+eye+of+the+world`)
-    this.bookViewToggle()
-
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=the+eye+of+the+world`)
+    // this.bookViewToggle()
+    let bookString = book.title.split('/').splice(0, 1).join('+')
+    console.log('bookString: ', bookString)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${bookString}`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({
         bookSearchResult: data,
       })
+    })
+    .then(() => {
+      this.bookViewToggle()
     })
   }
 
@@ -137,27 +141,33 @@ export default class Query extends Component {
     console.log('query state: ', this.state)
     return(
       <div className='query-container'>
-        <Filter
-          options={this.state.options}
-          typeSelected={this.state.typeSelected}
-          fetching={this.state.fetching}
 
-          yearSelect={this.yearSelect}
-          monthSelect={this.monthSelect}
-          handleSelect={this.handleSelect}
-          quantitySelect={this.quantitySelect}
-          handleSearch={this.handleSearch}
-        />
+        {!this.state.bookViewOpen ?
+          <div className='default-view'>
+            <Filter
+              options={this.state.options}
+              typeSelected={this.state.typeSelected}
+              fetching={this.state.fetching}
 
-        {this.state.checkouts ?
-          <Checkouts
-            checkouts={this.state.checkouts}
-            nameSearch={this.nameSearch}
-            checkoutSearch={this.checkoutSearch}
-            responseType={this.state.responseType}
-          />
-          : undefined
-        }
+              yearSelect={this.yearSelect}
+              monthSelect={this.monthSelect}
+              handleSelect={this.handleSelect}
+              quantitySelect={this.quantitySelect}
+              handleSearch={this.handleSearch}
+            />
+
+            {this.state.checkouts ?
+              <Checkouts
+                checkouts={this.state.checkouts}
+                nameSearch={this.nameSearch}
+                checkoutSearch={this.checkoutSearch}
+                responseType={this.state.responseType}
+                bookSearch={this.bookSearch}
+              />
+              : undefined
+            }
+          </div>
+        : undefined }
 
         <BookView
           bookViewOpen={this.state.bookViewOpen}
