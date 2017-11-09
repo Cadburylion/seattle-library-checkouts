@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import url('https://fonts.googleapis.com/css?family=Lobster');
+@import './style/vars';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   margin: 0;
@@ -8,7 +15,7 @@ body {
 }
 
 .selected {
-  color: #fff;
+  color: $color-white;
 }
 
 .cursive {

@@ -1,3 +1,5 @@
+@import '../../style/vars';
+
 main {
   max-width: 640px;
   margin: 0 auto;
@@ -8,8 +10,8 @@ main {
   font-family: 'Lobster', cursive;
   font-size: 3em;
   text-shadow: 1px 1px 1px black;
-  background: #337AB7;
-  border-bottom: 2px solid #fff;
+  background: $color-secondary;
+  border-bottom: 2px solid $color-white;
   position: fixed;
   top: 0;
   left: 0;
@@ -17,13 +19,13 @@ main {
 }
 
 .title-first {
-  color: #008CCA;
-  -webkit-text-stroke-color: #337AB7;
+  color: $color-white;
+  -webkit-text-stroke-color: $color-secondary;
 }
 
 .title-second {
-  /*color: #337AB7;*/
-  color: #008CCA;
+  /*color: $color-white;*/
+  color: $color-white;
   /*-webkit-text-stroke-color: #337DD7;*/
 }
 

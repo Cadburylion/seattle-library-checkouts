@@ -4,7 +4,7 @@ import FontAwesome from 'react-fontawesome'
 import QuantitySlider from '../slider/index.js'
 import SearchButton from '../search-button/index.js'
 import CheckoutTypeButton from '../checkout-type-button/index.js'
-import './style.css'
+import './style.scss'
 
 let Filter = (props) => (
   <div className='filters-container'>

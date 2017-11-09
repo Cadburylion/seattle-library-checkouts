@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Query from '../query/index.js'
-import './style.css'
+import './style.scss'
 
 export default class Dashboard extends Component {
   constructor(props){

@@ -1,10 +1,12 @@
+@import '../../style/vars';
+
 .btn {
   display: flex;
   justify-content: left;
   font-size: 2em;
   padding-left: 25px;
   align-items: center;
-  color: #008CCA;
+  color: $color-primary;
   cursor: pointer;
   text-shadow: 1px 1px 1px black;
 }

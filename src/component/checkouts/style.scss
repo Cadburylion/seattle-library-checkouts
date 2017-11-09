@@ -1,10 +1,10 @@
+@import '../../style/vars';
+
 .checkout-container {
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  background: #008CCA;
-  /*font-family: 'Lobster', cursive;*/
-  /*font-family: 'Lato', sans-serif;*/
+  // background: $color-primary;
   font-size: 1.2em;
   text-shadow: 1px 1px 1px black;
 }
@@ -25,11 +25,3 @@
 .large {
   font-size: 1.5em;
 }
-
-/*.checkout-header {
-  font-family: 'Lobster', cursive !important;
-}*/
-
-/*.checkout-item:nth-child(odd) {
-  background: #008CCA;
-}*/

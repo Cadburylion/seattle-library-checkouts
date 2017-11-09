@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
-import './style.css'
+import './style.scss'
 
 let QuantitySlider = (props) => (
   <Slider
