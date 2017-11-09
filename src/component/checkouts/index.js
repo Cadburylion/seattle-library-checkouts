@@ -4,8 +4,15 @@ import './style.css'
 let Checkouts = (props) => (
   <ul className='checkout-container'>
       <li className='checkout-item'>
-        <p className='checkout-amount cursive'> Amount </p>
-        <p className='checkout-title cursive'> {props.responseType}S </p>
+        <p className='checkout-amount cursive'> # checked out </p>
+        <p className='checkout-title large cursive'> {
+          props.responseType === 'BOOK' ? 'Books'
+          : props.responseType === 'EBOOK' ? 'Ebooks'
+          : props.responseType === 'MAGAZINE' ? 'Magazines'
+          : props.responseType === 'SONG' ? 'Song'
+          : ''
+        }
+        </p>
       </li>
     {props.checkouts.map((item, i) =>
       <li className='checkout-item' key={i}>
