@@ -1,0 +1,17 @@
+@import '../../style/vars';
+
+.book-view-container {
+  // display: none;
+  position: absolute;
+  top: 61px;
+  left: 0;
+  height: calc(100vh - 61px);
+  width: 100vw;
+  background: $color-primary;
+  color: white;
+  // opacity: .9;
+}
+
+.open {
+  display: block;
+}

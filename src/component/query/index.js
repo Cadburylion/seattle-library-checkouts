@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Filter from '../filter/index.js'
 import Checkouts from '../checkouts/index.js'
+import BookView from '../book-view/index.js'
 
 export default class Query extends Component {
   constructor(props){
@@ -9,6 +10,8 @@ export default class Query extends Component {
       checkouts: null,
       fetching: false,
       responseType: '',
+      bookSearchResult: '',
+      bookViewOpen: false,
       options: {
         type: 'BOOK',
         month: '1',
@@ -24,6 +27,8 @@ export default class Query extends Component {
     }
     this.typeSet = this.typeSet.bind(this)
     this.nameSearch = this.nameSearch.bind(this)
+    this.bookSearch = this.bookSearch.bind(this)
+    this.bookViewToggle = this.bookViewToggle.bind(this)
     this.checkoutSearch = this.checkoutSearch.bind(this)
     this.yearSelect = this.yearSelect.bind(this)
     this.monthSelect = this.monthSelect.bind(this)
@@ -104,10 +109,28 @@ export default class Query extends Component {
   }
 
   nameSearch(name){
-
     let creatorString = name.indexOf(',') >= 0 ? name.split(',').reverse().join('+') : name
     creatorString = /\d/.test(creatorString) ? creatorString.replace(/[^a-zA-Z]/g, ' ') : creatorString
     window.open(`https://en.wikipedia.org/w/index.php?search=${creatorString}`)
+  }
+
+  bookSearch(book){
+    // window.open(`https://www.googleapis.com/books/v1/volumes?q=the+eye+of+the+world`)
+    this.bookViewToggle()
+
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=the+eye+of+the+world`)
+    .then((response) => response.json())
+    .then((data) => {
+      this.setState({
+        bookSearchResult: data,
+      })
+    })
+  }
+
+  bookViewToggle(){
+    this.setState(prevState => ({
+      bookViewOpen: !prevState.bookViewOpen,
+    }))
   }
 
   render(){
@@ -135,6 +158,13 @@ export default class Query extends Component {
           />
           : undefined
         }
+
+        <BookView
+          bookViewOpen={this.state.bookViewOpen}
+          bookSearchResult={this.state.bookSearchResult}
+          bookSearch={this.bookSearch}
+          bookViewToggle={this.bookViewToggle}
+        />
 
       </div>
     )
