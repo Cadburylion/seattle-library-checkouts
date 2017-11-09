@@ -6,6 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 body {
@@ -14,8 +15,16 @@ body {
   font-family: sans-serif;
 }
 
+a {
+  color: $color-white;
+}
+
 .selected {
   color: $color-white;
+}
+
+.cursor {
+  cursor: pointer;
 }
 
 .cursive {
