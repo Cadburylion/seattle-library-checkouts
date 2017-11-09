@@ -5,16 +5,18 @@
   grid-template-columns: 1fr;
   align-items: center;
   // background: $color-primary;
-  font-size: 1.2em;
+  font-size: 1em;
   text-shadow: 1px 1px 1px black;
 }
 
 .checkout-item {
   display: grid;
-  grid-template-columns: 1fr 200px 1fr;
+  grid-template-columns: 1fr 50% 1fr;
+  grid-column-gap: 10px;
   align-items: center;
   padding: 5px;
   color: white;
+  border-top: .5px dotted $color-primary;
 }
 
 .checkout-title {
