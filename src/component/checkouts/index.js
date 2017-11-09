@@ -4,8 +4,8 @@ import './style.css'
 let Checkouts = (props) => (
   <ul className='checkout-container'>
       <li className='checkout-item'>
-        <p className='checkout-amount'> Amount </p>
-        <p className='checkout-title'> Title </p>
+        <p className='checkout-amount cursive'> Amount </p>
+        <p className='checkout-title cursive'> {props.responseType}S </p>
       </li>
     {props.checkouts.map((item, i) =>
       <li className='checkout-item' key={i}>
