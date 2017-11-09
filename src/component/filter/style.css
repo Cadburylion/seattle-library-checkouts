@@ -83,26 +83,21 @@ select {
   text-shadow: 1px 1px 1px black;
 }
 
-.month-list {
-  grid-area: month;
+.month-list, .year-list{
   color: white;
   border: #008CCA;
   background: #337AB7;
-  font-family: 'Lobster', cursive;
   font-size: 1.5em;
   padding-left: 25px;
   text-shadow: 1px 1px 1px black;
 }
 
+.month-list {
+  grid-area: month;
+}
+
 .year-list {
   grid-area: year;
-  color: white;
-  border: #008CCA;
-  background: #337AB7;
-  font-family: 'Lobster', cursive;
-  font-size: 1.5em;
-  padding-left: 25px;
-  text-shadow: 1px 1px 1px black;
 }
 
 .slider {

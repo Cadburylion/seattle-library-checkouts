@@ -22,6 +22,10 @@
   justify-content: center;
 }
 
+.large {
+  font-size: 1.5em;
+}
+
 /*.checkout-header {
   font-family: 'Lobster', cursive !important;
 }*/

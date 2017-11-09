@@ -61,7 +61,7 @@ let Filter = (props) => (
       name='music'
     />
 
-    <select className='month-list' defaultValue={props.options.month} onChange={props.monthSelect}>
+    <select className='month-list cursive' defaultValue={props.options.month} onChange={props.monthSelect}>
       <option value='1'>January</option>
       <option value='2'>February</option>
       <option value='3'>March</option>
@@ -76,7 +76,7 @@ let Filter = (props) => (
       <option value='12'>December</option>
     </select>
 
-    <select className='year-list' defaultValue={props.options.year} onChange={props.yearSelect}>
+    <select className='year-list cursive' defaultValue={props.options.year} onChange={props.yearSelect}>
       <option value='2010'>2010</option>
       <option value='2011'>2011</option>
       <option value='2012'>2012</option>
