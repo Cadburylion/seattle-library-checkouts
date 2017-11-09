@@ -11,7 +11,7 @@
 
 .checkout-item {
   display: grid;
-  grid-template-columns: 1fr 50% 1fr;
+  grid-template-columns: 90px 1fr 90px;
   grid-column-gap: 10px;
   align-items: center;
   padding: 5px;
@@ -20,7 +20,8 @@
 }
 
 .checkout-title {
-  display: flex;
+  // display: flex;
+  // min-width: 200px;
   justify-content: center;
 }
 
