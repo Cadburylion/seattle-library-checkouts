@@ -104,8 +104,9 @@ export default class Query extends Component {
   }
 
   nameSearch(name){
-    let creatorString = name.indexOf(',') >= 0 ? name.split(',').reverse().join('+') : undefined
-    creatorString = creatorString.replace(/[^a-zA-Z :]/g, ' ')
+
+    let creatorString = name.indexOf(',') >= 0 ? name.split(',').reverse().join('+') : name
+    creatorString = /\d/.test(creatorString) ? creatorString.replace(/[^a-zA-Z]/g, ' ') : creatorString
     window.open(`https://en.wikipedia.org/w/index.php?search=${creatorString}`)
   }
 
