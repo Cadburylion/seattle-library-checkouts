@@ -19,7 +19,7 @@ let Checkouts = (props) => (
     {props.checkouts.map((item, i) =>
       <li className='checkout-item' key={i}>
         <p className='checkout-amount'> {item.checkouts} </p>
-        <p onClick={() => props.checkoutSearch(item)} className='checkout-title cursor'>
+        <p onClick={() => props.bookSearch(item)} className='checkout-title cursor'>
             {item.title.split('/').splice(0, 1).join(' ')}
         </p>
         <p className='item-creator cursor' onClick={() => props.nameSearch(item.creator)}>
@@ -29,5 +29,9 @@ let Checkouts = (props) => (
     )}
   </ul>
 )
+
+// <p onClick={() => props.checkoutSearch(item)} className='checkout-title cursor'>
+//     {item.title.split('/').splice(0, 1).join(' ')}
+// </p>
 
 export default Checkouts

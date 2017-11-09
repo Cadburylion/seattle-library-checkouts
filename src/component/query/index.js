@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Filter from '../filter/index.js'
 import Checkouts from '../checkouts/index.js'
+import BookView from '../book-view/index.js'
 
 export default class Query extends Component {
   constructor(props){
@@ -9,6 +10,8 @@ export default class Query extends Component {
       checkouts: null,
       fetching: false,
       responseType: '',
+      bookSearchResult: '',
+      bookViewOpen: false,
       options: {
         type: 'BOOK',
         month: '1',
@@ -24,6 +27,8 @@ export default class Query extends Component {
     }
     this.typeSet = this.typeSet.bind(this)
     this.nameSearch = this.nameSearch.bind(this)
+    this.bookSearch = this.bookSearch.bind(this)
+    this.bookViewToggle = this.bookViewToggle.bind(this)
     this.checkoutSearch = this.checkoutSearch.bind(this)
     this.yearSelect = this.yearSelect.bind(this)
     this.monthSelect = this.monthSelect.bind(this)
@@ -104,37 +109,72 @@ export default class Query extends Component {
   }
 
   nameSearch(name){
-
     let creatorString = name.indexOf(',') >= 0 ? name.split(',').reverse().join('+') : name
     creatorString = /\d/.test(creatorString) ? creatorString.replace(/[^a-zA-Z]/g, ' ') : creatorString
     window.open(`https://en.wikipedia.org/w/index.php?search=${creatorString}`)
+  }
+
+  bookSearch(book){
+    // window.open(`https://www.googleapis.com/books/v1/volumes?q=the+eye+of+the+world`)
+    // this.bookViewToggle()
+    let bookString = book.title.split('/').splice(0, 1).join('+')
+    console.log('bookString: ', bookString)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${bookString}`)
+    .then((response) => response.json())
+    .then((data) => {
+      this.setState({
+        bookSearchResult: data,
+      })
+    })
+    .then(() => {
+      this.bookViewToggle()
+    })
+  }
+
+  bookViewToggle(){
+    this.setState(prevState => ({
+      bookViewOpen: !prevState.bookViewOpen,
+    }))
   }
 
   render(){
     console.log('query state: ', this.state)
     return(
       <div className='query-container'>
-        <Filter
-          options={this.state.options}
-          typeSelected={this.state.typeSelected}
-          fetching={this.state.fetching}
 
-          yearSelect={this.yearSelect}
-          monthSelect={this.monthSelect}
-          handleSelect={this.handleSelect}
-          quantitySelect={this.quantitySelect}
-          handleSearch={this.handleSearch}
+        {!this.state.bookViewOpen ?
+          <div className='default-view'>
+            <Filter
+              options={this.state.options}
+              typeSelected={this.state.typeSelected}
+              fetching={this.state.fetching}
+
+              yearSelect={this.yearSelect}
+              monthSelect={this.monthSelect}
+              handleSelect={this.handleSelect}
+              quantitySelect={this.quantitySelect}
+              handleSearch={this.handleSearch}
+            />
+
+            {this.state.checkouts ?
+              <Checkouts
+                checkouts={this.state.checkouts}
+                nameSearch={this.nameSearch}
+                checkoutSearch={this.checkoutSearch}
+                responseType={this.state.responseType}
+                bookSearch={this.bookSearch}
+              />
+              : undefined
+            }
+          </div>
+        : undefined }
+
+        <BookView
+          bookViewOpen={this.state.bookViewOpen}
+          bookSearchResult={this.state.bookSearchResult}
+          bookSearch={this.bookSearch}
+          bookViewToggle={this.bookViewToggle}
         />
-
-        {this.state.checkouts ?
-          <Checkouts
-            checkouts={this.state.checkouts}
-            nameSearch={this.nameSearch}
-            checkoutSearch={this.checkoutSearch}
-            responseType={this.state.responseType}
-          />
-          : undefined
-        }
 
       </div>
     )
