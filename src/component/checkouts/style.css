@@ -3,6 +3,10 @@
   grid-template-columns: 1fr;
   align-items: center;
   background: #008CCA;
+  /*font-family: 'Lobster', cursive;*/
+  /*font-family: 'Lato', sans-serif;*/
+  font-size: 1.2em;
+  text-shadow: 1px 1px 1px black;
 }
 
 .checkout-item {
@@ -17,6 +21,10 @@
   display: flex;
   justify-content: center;
 }
+
+/*.checkout-header {
+  font-family: 'Lobster', cursive !important;
+}*/
 
 /*.checkout-item:nth-child(odd) {
   background: #008CCA;

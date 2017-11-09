@@ -1,4 +1,6 @@
 import React from 'react'
+import Loader from '../loader/index.js'
+import FontAwesome from 'react-fontawesome'
 import QuantitySlider from '../slider/index.js'
 import SearchButton from '../search-button/index.js'
 import CheckoutTypeButton from '../checkout-type-button/index.js'
@@ -15,12 +17,22 @@ let Filter = (props) => (
       buttonName={'Books'}
     />
 
+    <FontAwesome
+      className={`book-icon ${props.typeSelected.book ? 'selected' : '' }`}
+      name='book'
+    />
+
     <CheckoutTypeButton
       typeSelected={props.typeSelected.ebook}
       handleSelect={props.handleSelect}
       classType={'ebook'}
       materialType={'EBOOK'}
       buttonName={'Ebooks'}
+    />
+
+    <FontAwesome
+      className={`ebook-icon ${props.typeSelected.ebook ? 'selected' : '' }`}
+      name='tablet'
     />
 
     <CheckoutTypeButton
@@ -31,12 +43,22 @@ let Filter = (props) => (
       buttonName={'Magazines'}
     />
 
+    <FontAwesome
+      className={`magazine-icon ${props.typeSelected.magazine ? 'selected' : '' }`}
+      name='newspaper-o'
+    />
+
     <CheckoutTypeButton
       typeSelected={props.typeSelected.song}
       handleSelect={props.handleSelect}
       classType={'song'}
       materialType={'SONG'}
       buttonName={'Songs'}
+    />
+
+    <FontAwesome
+      className={`song-icon ${props.typeSelected.song ? 'selected' : '' }`}
+      name='music'
     />
 
     <select className='month-list' defaultValue={props.options.month} onChange={props.monthSelect}>
@@ -71,24 +93,13 @@ let Filter = (props) => (
         handleChange={props.quantitySelect}/>
     </div>
 
-    <SearchButton buttonName={'Search'} handleSearch={props.handleSearch} />
+    <SearchButton buttonName={'Search'} fetching={props.fetching} handleSearch={props.handleSearch} />
 
     {props.fetching ?
-      <span className='loader'></span>
+      <Loader />
       : undefined
     }
   </div>
 )
-// <button className='search-button' onClick={props.handleSearch}> Search </button>
-
-// <div className={props.typeSelected.book ? 'btn book selected' : 'btn book'}
-//   onClick={() => props.handleSelect('book', 'BOOK')}>Books</div>
-// <div className={props.typeSelected.ebook ? 'btn ebook selected' : 'btn ebook'}
-//   onClick={() => props.handleSelect('ebook', 'EBOOK')}>Ebooks</div>
-// <div className={props.typeSelected.magazine ? 'btn magazine selected' : 'btn magazine'}
-//   onClick={() => props.handleSelect('magazine', 'MAGAZINE')}>Magazines</div>
-// <div className={props.typeSelected.song ? 'btn song selected' : 'btn song'}
-//   onClick={() => props.handleSelect('song', 'SONG')}>Songs</div>
-
 
 export default Filter

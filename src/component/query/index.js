@@ -8,6 +8,7 @@ export default class Query extends Component {
     this.state={
       checkouts: null,
       fetching: false,
+      responseType: '',
       options: {
         type: 'BOOK',
         month: '1',
@@ -47,6 +48,7 @@ export default class Query extends Component {
       this.setState({
         checkouts: data,
         fetching: false,
+        responseType: options.type,
       })
     })
   }
@@ -97,8 +99,7 @@ export default class Query extends Component {
   render(){
     console.log('query state: ', this.state)
     return(
-      <div>
-
+      <div className='query-container'>
         <Filter
           options={this.state.options}
           typeSelected={this.state.typeSelected}
@@ -114,6 +115,7 @@ export default class Query extends Component {
         {this.state.checkouts ?
           <Checkouts
             checkouts={this.state.checkouts}
+            responseType={this.state.responseType}
           />
           : undefined
         }
