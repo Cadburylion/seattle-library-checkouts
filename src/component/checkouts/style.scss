@@ -11,24 +11,34 @@
 
 .checkout-item {
   display: grid;
-  grid-template-columns: 90px 1fr 90px;
+  grid-template-columns: 1fr 90px 40px;
   grid-column-gap: 10px;
   align-items: center;
   padding: 10px;
   color: white;
   border-top: .5px dotted $color-primary;
+  text-align: left;
+}
+
+.checkout-title-header {
+  text-align: left;
+}
+
+.checkout-creator-header {
+  justify-self: left;
+}
+
+.checkout-item-creator {
+  justify-self: left;
+  text-align: left;
+}
+
+.checkout-amount-header {
+  justify-self: right;
 }
 
 .checkout-amount {
-  justify-self: left;
-  // padding-left: 5px;
-}
-
-.checkout-title {
-  // display: flex;
-  // min-width: 200px;
-  // justify-self: center;
-  // justify-self: left;
+  justify-self: right;
 }
 
 .large {
