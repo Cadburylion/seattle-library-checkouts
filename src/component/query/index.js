@@ -12,6 +12,7 @@ export default class Query extends Component {
       responseType: '',
       bookSearchResult: '',
       bookViewOpen: false,
+      bookVersion: 0,
       options: {
         type: 'BOOK',
         month: '1',
@@ -26,6 +27,8 @@ export default class Query extends Component {
       },
     }
     this.typeSet = this.typeSet.bind(this)
+    this.bookNext = this.bookNext.bind(this)
+    this.bookPrevious = this.bookPrevious.bind(this)
     this.nameSearch = this.nameSearch.bind(this)
     this.bookSearch = this.bookSearch.bind(this)
     this.bookViewToggle = this.bookViewToggle.bind(this)
@@ -116,7 +119,7 @@ export default class Query extends Component {
 
   bookSearch(book){
     // window.open(`https://www.googleapis.com/books/v1/volumes?q=the+eye+of+the+world`)
-    // this.bookViewToggle()
+
     let bookString = book.title.split('/').splice(0, 1).join('+')
     console.log('bookString: ', bookString)
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${bookString}`)
@@ -134,6 +137,19 @@ export default class Query extends Component {
   bookViewToggle(){
     this.setState(prevState => ({
       bookViewOpen: !prevState.bookViewOpen,
+      bookVersion: 0,
+    }))
+  }
+
+  bookNext(){
+    this.setState(prevState => ({
+      bookVersion: prevState.bookVersion === 2 ? 0 : prevState.bookVersion + 1,
+    }))
+  }
+
+  bookPrevious(){
+    this.setState(prevState => ({
+      bookVersion: prevState.bookVersion === 0 ? 2 : prevState.bookVersion - 1,
     }))
   }
 
@@ -176,6 +192,9 @@ export default class Query extends Component {
             bookSearchResult={this.state.bookSearchResult}
             bookSearch={this.bookSearch}
             bookViewToggle={this.bookViewToggle}
+            bookNext={this.bookNext}
+            bookPrevious={this.bookPrevious}
+            bookVersion={this.state.bookVersion}
           />
           : undefined
         }
