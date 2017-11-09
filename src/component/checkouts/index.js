@@ -1,10 +1,11 @@
 import React from 'react'
 import './style.scss'
 
+
 let Checkouts = (props) => (
   <ul className='checkout-container'>
       <li className='checkout-item'>
-        <p className='checkout-amount cursive'> # checked out </p>
+        <p className='checkout-amount cursive'> checked out </p>
         <p className='checkout-title large cursive'> {
           props.responseType === 'BOOK' ? 'Books'
           : props.responseType === 'EBOOK' ? 'Ebooks'
@@ -17,7 +18,12 @@ let Checkouts = (props) => (
     {props.checkouts.map((item, i) =>
       <li className='checkout-item' key={i}>
         <p className='checkout-amount'> {item.checkouts} </p>
-        <p className='checkout-title'> {item.title} </p>
+        <p onClick={() => props.checkoutSearch(item)} className='checkout-title cursor'>
+            {item.title.split('/').splice(0, 1).join(' ')}
+        </p>
+        <p className='cursor' onClick={() => props.nameSearch(item.creator)}>
+          {item.creator}
+        </p>
       </li>
     )}
   </ul>

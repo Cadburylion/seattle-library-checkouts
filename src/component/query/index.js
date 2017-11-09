@@ -23,6 +23,8 @@ export default class Query extends Component {
       },
     }
     this.typeSet = this.typeSet.bind(this)
+    this.nameSearch = this.nameSearch.bind(this)
+    this.checkoutSearch = this.checkoutSearch.bind(this)
     this.yearSelect = this.yearSelect.bind(this)
     this.monthSelect = this.monthSelect.bind(this)
     this.classToggle = this.classToggle.bind(this)
@@ -96,6 +98,17 @@ export default class Query extends Component {
     }))
   }
 
+  checkoutSearch(item){
+    let titleString = item.title.split(' ').join('+')
+    window.open(`https://seattle.bibliocommons.com/v2/search?query=${titleString}&searchType=smart`)
+  }
+
+  nameSearch(name){
+    let creatorString = name.indexOf(',') >= 0 ? name.split(',').reverse().join('+') : undefined
+    creatorString = creatorString.replace(/[^a-zA-Z :]/g, ' ')
+    window.open(`https://en.wikipedia.org/w/index.php?search=${creatorString}`)
+  }
+
   render(){
     console.log('query state: ', this.state)
     return(
@@ -115,6 +128,8 @@ export default class Query extends Component {
         {this.state.checkouts ?
           <Checkouts
             checkouts={this.state.checkouts}
+            nameSearch={this.nameSearch}
+            checkoutSearch={this.checkoutSearch}
             responseType={this.state.responseType}
           />
           : undefined
