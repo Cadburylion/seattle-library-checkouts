@@ -9,13 +9,14 @@
 
 .book-information-container {
   display: grid;
-  grid-template-rows: repeat(4, auto);
+  grid-template-rows: repeat(5, auto);
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "cover close"
+    "blank close"
     "cover book-title"
     "cover book-subtitle"
-    "cover book-author";
+    "cover book-author"
+    "left-arrow right-arrow";
   // justify-items: left;
   align-items: normal;
   color: white;
@@ -39,33 +40,39 @@
   grid-area: cover;
 }
 
-.book-view-close {
+// .book-view-close {
+//   grid-area: close;
+//   position: relative;
+//   justify-self: right;
+//   height: 20px;
+//   width: 20px;
+//   span {
+//     display: inline-block;
+//     height: 2px;
+//     width: 15px;
+//     position: absolute;
+//     top: 10px;
+//     left: 0;
+//     background: $color-white;
+//   }
+// }
+
+// .book-view-close span:nth-child(1) {
+//   transform: rotate(-45deg);
+// }
+//
+// .book-view-close span:nth-child(2) {
+//   transform: rotate(45deg);
+// }
+
+.close-icon {
   grid-area: close;
-  position: relative;
   justify-self: right;
-  height: 20px;
-  width: 20px;
-  span {
-    display: inline-block;
-    height: 2px;
-    width: 20px;
-    position: absolute;
-    top: 10px;
-    left: 0;
-    background: $color-white;
-  }
-}
-
-.book-view-close span:nth-child(1) {
-  transform: rotate(-45deg);
-}
-
-.book-view-close span:nth-child(2) {
-  transform: rotate(45deg);
 }
 
 .book-title {
   grid-area: book-title;
+  align-self: end;
 }
 
 .book-subtitle {
@@ -74,6 +81,16 @@
 
 .book-author {
   grid-area: book-author;
+}
+
+.left-arrow-icon {
+  grid-area: left-arrow;
+  justify-self: left;
+}
+
+.right-arrow-icon {
+  grid-area: right-arrow;
+  justify-self: right;
 }
 
 .book-description {

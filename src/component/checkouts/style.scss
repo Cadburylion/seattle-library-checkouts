@@ -11,7 +11,7 @@
 
 .checkout-item {
   display: grid;
-  grid-template-columns: 1fr 90px 30px;
+  grid-template-columns: 1fr 90px 40px;
   grid-column-gap: 10px;
   align-items: center;
   padding: 10px;
@@ -28,13 +28,17 @@
   justify-self: left;
 }
 
-.checkout-amount-header {
-  justify-self: center;
+.checkout-item-creator {
+  justify-self: left;
+  text-align: left;
 }
 
-.checkout-item-creator {
+.checkout-amount-header {
   justify-self: right;
-  text-align: left;
+}
+
+.checkout-amount {
+  justify-self: right;
 }
 
 .large {
