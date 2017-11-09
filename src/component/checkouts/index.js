@@ -5,7 +5,7 @@ import './style.scss'
 let Checkouts = (props) => (
   <ul className='checkout-container'>
       <li className='checkout-item'>
-        <p className='checkout-amount cursive'> checked out </p>
+        <p className='checkout-amount cursive'> Checked out </p>
         <p className='checkout-title large cursive'> {
           props.responseType === 'BOOK' ? 'Books'
           : props.responseType === 'EBOOK' ? 'Ebooks'
@@ -14,6 +14,7 @@ let Checkouts = (props) => (
           : ''
         }
         </p>
+        <p className='checkout-creator cursive'> Creator </p>
       </li>
     {props.checkouts.map((item, i) =>
       <li className='checkout-item' key={i}>
@@ -21,7 +22,7 @@ let Checkouts = (props) => (
         <p onClick={() => props.checkoutSearch(item)} className='checkout-title cursor'>
             {item.title.split('/').splice(0, 1).join(' ')}
         </p>
-        <p className='cursor' onClick={() => props.nameSearch(item.creator)}>
+        <p className='item-creator cursor' onClick={() => props.nameSearch(item.creator)}>
           {item.creator}
         </p>
       </li>
