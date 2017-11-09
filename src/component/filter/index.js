@@ -93,6 +93,10 @@ let Filter = (props) => (
         handleChange={props.quantitySelect}/>
     </div>
 
+    <div className='slider-quantity cursive'>
+      {props.options.quantity} items
+    </div>
+
     <SearchButton buttonName={'Search'} fetching={props.fetching} handleSearch={props.handleSearch} />
 
     {props.fetching ?

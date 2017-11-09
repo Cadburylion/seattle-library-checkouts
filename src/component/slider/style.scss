@@ -7,3 +7,7 @@
 .rangeslider {
   background: $color-secondary;
 }
+
+.rangeslider-horizontal .rangeslider__handle:after {
+  background-color: $color-primary;
+}
