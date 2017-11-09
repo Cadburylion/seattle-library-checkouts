@@ -23,6 +23,8 @@ select {
     "month quantity"
     "year quantity"
     "search search";
+  border-top: 2px solid $color-white;
+  border-bottom: 2px solid $color-white;
 }
 
 .book {
@@ -34,7 +36,7 @@ select {
   color: $color-primary;
   justify-self: right;
   align-self: center;
-  margin-right: 25px;
+  margin-right: 10px;
   text-shadow: 1px 1px 1px black;
 }
 
@@ -47,7 +49,7 @@ select {
   color: $color-primary;
   justify-self: right;
   align-self: center;
-  margin-right: 25px;
+  margin-right: 10px;
   text-shadow: 1px 1px 1px black;
 }
 
@@ -60,7 +62,7 @@ select {
   color: $color-primary;
   justify-self: right;
   align-self: center;
-  margin-right: 25px;
+  margin-right: 10px;
   text-shadow: 1px 1px 1px black;
 }
 
@@ -73,7 +75,7 @@ select {
   color: $color-primary;
   justify-self: right;
   align-self: center;
-  margin-right: 25px;
+  margin-right: 10px;
   text-shadow: 1px 1px 1px black;
 }
 
@@ -82,7 +84,7 @@ select {
   border: $color-primary;
   background: $color-secondary;
   font-size: 1.5em;
-  padding-left: 25px;
+  padding-left: 10px;
   text-shadow: 1px 1px 1px black;
 }
 
@@ -98,7 +100,7 @@ select {
   grid-area: quantity;
   background: $color-secondary;
   align-self: center;
-  padding-right: 25px;
+  padding-right: 10px;
   padding-left: 25px;
 }
 
