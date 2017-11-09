@@ -1,7 +1,9 @@
+@import './style/vars';
+
 .App {
   text-align: center;
   min-height: 100vh;
-  background: #337AB7;
+  background: $color-secondary;
 }
 
 .App-logo {

@@ -1,8 +1,4 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import '../../style/vars';
 
 ul, li {
   list-style: none;
@@ -27,9 +23,7 @@ select {
     "month quantity"
     "year quantity"
     "search search";
-  /*margin: 0 auto;*/
 }
-
 
 .book {
   grid-area: books;
@@ -37,7 +31,7 @@ select {
 
 .book-icon {
   grid-area: books;
-  color: #008CCA;
+  color: $color-primary;
   justify-self: right;
   align-self: center;
   margin-right: 25px;
@@ -50,7 +44,7 @@ select {
 
 .ebook-icon {
   grid-area: ebooks;
-  color: #008CCA;
+  color: $color-primary;
   justify-self: right;
   align-self: center;
   margin-right: 25px;
@@ -63,7 +57,7 @@ select {
 
 .magazine-icon {
   grid-area: magazines;
-  color: #008CCA;
+  color: $color-primary;
   justify-self: right;
   align-self: center;
   margin-right: 25px;
@@ -76,7 +70,7 @@ select {
 
 .song-icon {
   grid-area: songs;
-  color: #008CCA;
+  color: $color-primary;
   justify-self: right;
   align-self: center;
   margin-right: 25px;
@@ -85,8 +79,8 @@ select {
 
 .month-list, .year-list{
   color: white;
-  border: #008CCA;
-  background: #337AB7;
+  border: $color-primary;
+  background: $color-secondary;
   font-size: 1.5em;
   padding-left: 25px;
   text-shadow: 1px 1px 1px black;
@@ -102,7 +96,7 @@ select {
 
 .slider {
   grid-area: quantity;
-  background: #337AB7;
+  background: $color-secondary;
   align-self: center;
   padding-right: 25px;
   padding-left: 25px;
@@ -113,8 +107,7 @@ select {
 }
 
 .selected {
-  color: #fff;
-  /*background: #008CCA;*/
+  color: $color-white;
 }
 
 @keyframes loading-text-spin {

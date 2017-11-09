@@ -1,7 +1,9 @@
+@import '../../style/vars';
+
 .rangeslider-horizontal .rangeslider__fill {
-  background-color: #fff;
+  background-color: $color-white;
 }
 
 .rangeslider {
-  background: #337AB7;
+  background: $color-secondary;
 }
