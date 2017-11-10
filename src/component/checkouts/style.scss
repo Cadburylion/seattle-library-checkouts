@@ -4,14 +4,12 @@
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  // background: $color-primary;
-  font-size: 1em;
   text-shadow: 1px 1px 1px black;
 }
 
 .checkout-item {
   display: grid;
-  grid-template-columns: 1fr 90px 40px;
+  grid-template-columns: 1fr 55px 40px;
   grid-column-gap: 10px;
   align-items: center;
   padding: 10px;
@@ -20,27 +18,33 @@
   text-align: left;
 }
 
-.checkout-title-header {
+.checkout-item-title-header {
   text-align: left;
+  font-size: 1.5em;
 }
 
-.checkout-creator-header {
-  justify-self: left;
+.checkout-item-amount-header {
+  justify-self: center;
+
+}
+
+.checkout-item-place-header {
+  justify-self: center;
 }
 
 .checkout-item-creator {
   justify-self: left;
+  padding-top: 10px;
   text-align: left;
+  font-size: .75em;
 }
 
-.checkout-amount-header {
-  justify-self: right;
+.checkout-item-amount {
+  justify-self: center;
+  align-self: flex-start;
 }
 
-.checkout-amount {
-  justify-self: right;
-}
-
-.large {
-  font-size: 1.5em;
+.checkout-item-place {
+  justify-self: center;
+  align-self: flex-start;
 }
