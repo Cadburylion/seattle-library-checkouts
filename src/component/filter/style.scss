@@ -21,8 +21,7 @@ select {
     "magazines magazines"
     "month quantity-slider"
     "year quantity-number"
-    "search search";
-  // border-top: 2px solid $color-white;
+    "search-field search-field";
   border-bottom: 2px groove $color-white;
 }
 
@@ -113,9 +112,11 @@ select {
   text-shadow: 1px 1px 1px black;
 }
 
-.search-button {
-  grid-area: search;
+.search-form {
+  grid-area: search-field;
+  align-self: center;
 }
+
 
 .selected {
   color: $color-white;

@@ -2,6 +2,7 @@ import React from 'react'
 import Loader from '../loader/index.js'
 import FontAwesome from 'react-fontawesome'
 import QuantitySlider from '../slider/index.js'
+import SearchField from '../search-field/index.js'
 import SearchButton from '../search-button/index.js'
 import CheckoutTypeButton from '../checkout-type-button/index.js'
 import './style.scss'
@@ -84,12 +85,13 @@ let Filter = (props) => (
       {props.options.quantity} items
     </div>
 
-    <SearchButton buttonName={'Search'} fetching={props.fetching} handleSearch={props.handleSearch} />
+    <SearchField
+      inputText={'search google books'}
+      bookSearch={props.bookSearch}
+      searchField={props.searchField}
+      handleChange={props.handleChange}
+    />
 
-    {props.fetching ?
-      <Loader />
-      : undefined
-    }
   </div>
 )
 
