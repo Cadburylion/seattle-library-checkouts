@@ -29,7 +29,7 @@ export default class Query extends Component {
     this.typeSet = this.typeSet.bind(this)
     this.bookNext = this.bookNext.bind(this)
     this.bookPrevious = this.bookPrevious.bind(this)
-    this.nameSearch = this.nameSearch.bind(this)
+    this.authorSearch = this.authorSearch.bind(this)
     this.bookSearch = this.bookSearch.bind(this)
     this.bookViewToggle = this.bookViewToggle.bind(this)
     this.yearSelect = this.yearSelect.bind(this)
@@ -105,16 +105,14 @@ export default class Query extends Component {
     }))
   }
 
-  nameSearch(name){
-    let creatorString = name.indexOf(',') >= 0 ? name.split(',').reverse().join('+') : name
-    creatorString = /\d/.test(creatorString) ? creatorString.replace(/[^a-zA-Z]/g, ' ') : creatorString
-    window.open(`https://en.wikipedia.org/w/index.php?search=${creatorString}`)
+  authorSearch(name){
+    // let creatorString = name.indexOf(',') >= 0 ? name.split(',').reverse().join('+') : name
+    // creatorString = /\d/.test(creatorString) ? creatorString.replace(/[^a-zA-Z]/g, ' ') : creatorString
+    window.open(`https://en.wikipedia.org/w/index.php?search=${name}`)
   }
 
   bookSearch(book){
-
     let bookString = book.title.split('/').splice(0, 1).join('+')
-    console.log('bookString: ', bookString)
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${bookString}`)
     .then((response) => response.json())
     .then((data) => {
@@ -168,7 +166,7 @@ export default class Query extends Component {
             {this.state.checkouts ?
               <Checkouts
                 checkouts={this.state.checkouts}
-                nameSearch={this.nameSearch}
+                authorSearch={this.authorSearch}
                 responseType={this.state.responseType}
                 bookSearch={this.bookSearch}
               />
@@ -187,6 +185,7 @@ export default class Query extends Component {
             bookNext={this.bookNext}
             bookPrevious={this.bookPrevious}
             bookVersion={this.state.bookVersion}
+            authorSearch={this.authorSearch}
           />
           : undefined
         }

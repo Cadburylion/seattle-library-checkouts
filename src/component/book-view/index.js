@@ -7,7 +7,8 @@ let BookView = (props) => {
   let imageLinks = volumeInfo.imageLinks ? volumeInfo.imageLinks : ''
   let title = volumeInfo.title ? volumeInfo.title : ''
   let subtitle = volumeInfo.subtitle ? volumeInfo.subtitle : ''
-  let authors = volumeInfo.authors ? volumeInfo.authors : ''
+  let authors = volumeInfo.authors ? volumeInfo.authors.join(', ') : ''
+  // let authorSearchString = authors
   let description = volumeInfo.description ? volumeInfo.description : ''
   let checkoutString = title.split(' ').join('+')
   window.scrollTo(0, 0);
@@ -17,7 +18,7 @@ let BookView = (props) => {
 
         <p className='version-counter'>{props.bookVersion + 1}/3</p>
 
-        <a className='library-link' href={`https://seattle.bibliocommons.com/v2/search?query=${checkoutString}&searchType=smart`} target='_#'>Library</a>
+        <a className='library-link' href={`https://seattle.bibliocommons.com/v2/search?query=${checkoutString}&searchType=smart`} target='_#'>Library availability</a>
 
         <FontAwesome
           onClick={props.bookViewToggle}
@@ -25,13 +26,15 @@ let BookView = (props) => {
           name='times'
         />
 
-        <a className='google-books-link' href={volumeInfo.infoLink} target='_#'>Google Books</a>
-
         <img className='cover' src={imageLinks.thumbnail} alt='book cover' />
 
-        <p className='book-title'>{title}</p>
+        <div className='book-title'>{title}</div>
         <p className='book-subtitle'>{subtitle}</p>
-        <p className='book-author'>{authors}</p>
+        <p className='book-author cursor' onClick={() => props.authorSearch(authors)}>{`${authors} `}
+        <span className={'author-link-icon'}>
+          <FontAwesome name='external-link' />
+        </span>
+        </p>
 
         <FontAwesome
         onClick={props.bookPrevious}
@@ -47,10 +50,15 @@ let BookView = (props) => {
 
       </div>
       <div className='book-description-container'>
-        <p className='book-description'>{description}</p>
+        <p className='book-description'>{`${description} `}</p>
+        <div className='fade-anchor'></div>
+        <a className='read-more' href={volumeInfo.infoLink} target='_#'>Read More</a>
       </div>
     </div>
   )
 }
+// <a className='google-books-link' href={volumeInfo.infoLink} target='_#'>
+//   read more at Google Books
+// </a>
 
 export default BookView
