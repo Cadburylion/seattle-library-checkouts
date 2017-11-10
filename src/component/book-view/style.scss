@@ -10,14 +10,14 @@
 
 .book-information-container {
   display: grid;
-  grid-template-rows: repeat(5, auto) 35px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(6, auto);
+  grid-template-columns: 150px 1fr;
   grid-template-areas:
     "version version"
     "cover book-title"
     "cover book-subtitle"
     "cover book-author"
-    "nav nav"
+    "library blank"
     "nav nav";
   align-items: normal;
   color: white;
@@ -25,17 +25,7 @@
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   padding: 10px;
-  text-shadow: 1px 1px 1px black;
-}
-
-.book-description-container {
-  display: grid;
-  grid-template-rows: 1fr 1px 1px;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "book-description";
-  padding: 10px;
-  border-top: 2px solid $color-white;
+  // text-shadow: 1px 1px 1px black;
 }
 
 .version-counter {
@@ -55,6 +45,7 @@
 .book-title {
   grid-area: book-title;
   align-self: end;
+  font-size: 1.5em
 }
 
 .book-subtitle {
@@ -66,15 +57,18 @@
 }
 
 .library-link {
-  grid-area: nav;
+  grid-area: library;
   align-self: start;
-  justify-self: center;
+  justify-self: left;
 }
 
 .google-books-link {
   grid-area: nav;
   align-self: end;
   justify-self: center;
+  text-decoration: underline;
+  font-style: italic;
+  font-size: .9em;
 }
 
 .left-arrow-icon {
@@ -89,7 +83,32 @@
   justify-self: right;
 }
 
+.book-description-container {
+  display: grid;
+  grid-template-rows: 130px auto auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "book-description";
+  padding: 10px;
+  border-top: 2px solid $color-white;
+}
+
 .book-description {
+  overflow: hidden;
   grid-area: book-description;
-  line-height: 1.2em;
+  line-height: 1.5em;
+}
+
+.fade-anchor {
+  display: block;
+  height: 100%;
+  grid-area: book-description;
+  background: linear-gradient(to bottom, rgba(237, 239, 240, 0), rgba(237, 239, 240, 0) 90px, $color-secondary 120px);
+}
+
+.read-more {
+  justify-self: center;
+  z-index: 10;
+  padding: 10px;
+  font-size: 1.2em;
 }

@@ -21,7 +21,7 @@ let Checkouts = (props) => (
         <p className='checkout-title cursor' onClick={() => props.bookSearch(item)}>
             {item.title.split('/').splice(0, 1).join(' ')}
         </p>
-        <p className='checkout-item-creator cursor' onClick={() => props.nameSearch(item.creator)}>
+        <p className='checkout-item-creator cursor' onClick={() => props.authorSearch(item.creator)}>
           {item.creator}
         </p>
         <p className='checkout-amount'> {item.checkouts} </p>
