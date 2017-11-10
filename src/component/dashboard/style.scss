@@ -1,20 +1,21 @@
 @import '../../style/vars';
 
 main {
-  max-width: 640px;
   width: 95%;
+  max-width: 640px;
   margin: 0 auto;
 }
 
 .app-title {
-  width: 100%;
+  width: inherit;
+  max-width: inherit;
   font-family: $font-cursive;
   font-size: 3em;
   text-shadow: 1px 1px 1px black;
   background: $color-secondary;
   position: fixed;
-  top: 0;
-  left: 0;
+  left: inherit;
+  border-bottom: 2px groove $color-white;
   z-index: 1;
 }
 

@@ -7,15 +7,23 @@
   text-shadow: 1px 1px 1px black;
 }
 
-.checkout-item {
+.checkout-item, .checkout-item-header {
   display: grid;
   grid-template-columns: 1fr 55px 40px;
   grid-column-gap: 10px;
   align-items: center;
   padding: 10px;
   color: white;
-  border-top: .5px dotted $color-primary;
+  border-top: .5px dashed $color-primary;
   text-align: left;
+}
+
+.checkout-item-header {
+  position: sticky;
+  top: 60px;
+  border-top: none;
+  border-bottom: 2px groove $color-white;
+  background: $color-secondary;
 }
 
 .checkout-item-title-header {

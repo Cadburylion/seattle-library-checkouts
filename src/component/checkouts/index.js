@@ -5,7 +5,7 @@ import * as stringClean from '../../lib/util.js'
 
 let Checkouts = (props) => (
   <ul className='checkout-container'>
-      <li className='checkout-item'>
+      <li className='checkout-item-header'>
         <p className='checkout-item-title-header large cursive'> {
           props.responseType === 'BOOK' ? 'Books'
           : props.responseType === 'EBOOK' ? 'Ebooks'
