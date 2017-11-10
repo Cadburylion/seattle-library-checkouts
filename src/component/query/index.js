@@ -32,7 +32,6 @@ export default class Query extends Component {
     this.nameSearch = this.nameSearch.bind(this)
     this.bookSearch = this.bookSearch.bind(this)
     this.bookViewToggle = this.bookViewToggle.bind(this)
-    this.checkoutSearch = this.checkoutSearch.bind(this)
     this.yearSelect = this.yearSelect.bind(this)
     this.monthSelect = this.monthSelect.bind(this)
     this.classToggle = this.classToggle.bind(this)
@@ -106,11 +105,6 @@ export default class Query extends Component {
     }))
   }
 
-  checkoutSearch(item){
-    let titleString = item.title.split(' ').join('+')
-    window.open(`https://seattle.bibliocommons.com/v2/search?query=${titleString}&searchType=smart`)
-  }
-
   nameSearch(name){
     let creatorString = name.indexOf(',') >= 0 ? name.split(',').reverse().join('+') : name
     creatorString = /\d/.test(creatorString) ? creatorString.replace(/[^a-zA-Z]/g, ' ') : creatorString
@@ -118,7 +112,6 @@ export default class Query extends Component {
   }
 
   bookSearch(book){
-    // window.open(`https://www.googleapis.com/books/v1/volumes?q=the+eye+of+the+world`)
 
     let bookString = book.title.split('/').splice(0, 1).join('+')
     console.log('bookString: ', bookString)
@@ -176,7 +169,6 @@ export default class Query extends Component {
               <Checkouts
                 checkouts={this.state.checkouts}
                 nameSearch={this.nameSearch}
-                checkoutSearch={this.checkoutSearch}
                 responseType={this.state.responseType}
                 bookSearch={this.bookSearch}
               />
