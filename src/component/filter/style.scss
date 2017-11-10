@@ -22,8 +22,8 @@ select {
     "month quantity-slider"
     "year quantity-number"
     "search search";
-  border-top: 2px solid $color-white;
-  border-bottom: 2px solid $color-white;
+  // border-top: 2px solid $color-white;
+  border-bottom: 2px groove $color-white;
 }
 
 .book {
