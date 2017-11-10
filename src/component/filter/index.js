@@ -48,19 +48,6 @@ let Filter = (props) => (
       name='newspaper-o'
     />
 
-    <CheckoutTypeButton
-      typeSelected={props.typeSelected.song}
-      handleSelect={props.handleSelect}
-      classType={'song'}
-      materialType={'SONG'}
-      buttonName={'Songs'}
-    />
-
-    <FontAwesome
-      className={`song-icon ${props.typeSelected.song ? 'selected' : '' }`}
-      name='music'
-    />
-
     <select className='month-list cursive' defaultValue={props.options.month} onChange={props.monthSelect}>
       <option value='1'>January</option>
       <option value='2'>February</option>

@@ -8,7 +8,7 @@ main {
 
 .app-title {
   width: 100%;
-  font-family: 'Lobster', cursive;
+  font-family: $font-cursive;
   font-size: 3em;
   text-shadow: 1px 1px 1px black;
   background: $color-secondary;
@@ -24,9 +24,7 @@ main {
 }
 
 .title-second {
-  /*color: $color-white;*/
   color: $color-white;
-  /*-webkit-text-stroke-color: #337DD7;*/
 }
 
 .title-space {
