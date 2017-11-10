@@ -7,10 +7,9 @@ let BookView = (props) => {
   let imageLinks = volumeInfo.imageLinks ? volumeInfo.imageLinks : ''
   let title = volumeInfo.title ? volumeInfo.title : ''
   let subtitle = volumeInfo.subtitle ? volumeInfo.subtitle : ''
-  let authors = volumeInfo.authors ? volumeInfo.authors : ''
-  // let description = volumeInfo.description ? volumeInfo.description.substring(0, 300) + '...' : ''
+  let authors = volumeInfo.authors ? volumeInfo.authors.join(', ') : ''
+  // let authorSearchString = authors
   let description = volumeInfo.description ? volumeInfo.description : ''
-  // let snippet = JSON.stringify(props.bookSearchResult.items[props.bookVersion].searchInfo.textSnippet)
   let checkoutString = title.split(' ').join('+')
   window.scrollTo(0, 0);
   return(
@@ -29,9 +28,13 @@ let BookView = (props) => {
 
         <img className='cover' src={imageLinks.thumbnail} alt='book cover' />
 
-        <p className='book-title'>{title}</p>
+        <div className='book-title'>{title}</div>
         <p className='book-subtitle'>{subtitle}</p>
-        <p className='book-author'>{authors}</p>
+        <p className='book-author cursor' onClick={() => props.authorSearch(authors)}>{`${authors} `}
+        <span className={'author-link-icon'}>
+          <FontAwesome name='external-link' />
+        </span>
+        </p>
 
         <FontAwesome
         onClick={props.bookPrevious}

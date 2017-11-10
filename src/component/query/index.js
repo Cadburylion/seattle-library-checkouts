@@ -106,9 +106,9 @@ export default class Query extends Component {
   }
 
   authorSearch(name){
-    let creatorString = name.indexOf(',') >= 0 ? name.split(',').reverse().join('+') : name
-    creatorString = /\d/.test(creatorString) ? creatorString.replace(/[^a-zA-Z]/g, ' ') : creatorString
-    window.open(`https://en.wikipedia.org/w/index.php?search=${creatorString}`)
+    // let creatorString = name.indexOf(',') >= 0 ? name.split(',').reverse().join('+') : name
+    // creatorString = /\d/.test(creatorString) ? creatorString.replace(/[^a-zA-Z]/g, ' ') : creatorString
+    window.open(`https://en.wikipedia.org/w/index.php?search=${name}`)
   }
 
   bookSearch(book){
@@ -185,6 +185,7 @@ export default class Query extends Component {
             bookNext={this.bookNext}
             bookPrevious={this.bookPrevious}
             bookVersion={this.state.bookVersion}
+            authorSearch={this.authorSearch}
           />
           : undefined
         }

@@ -45,7 +45,7 @@
 .book-title {
   grid-area: book-title;
   align-self: end;
-  font-size: 1.5em
+  font-size: 1.2em
 }
 
 .book-subtitle {
@@ -54,6 +54,12 @@
 
 .book-author {
   grid-area: book-author;
+  height: 1.2em;
+}
+
+.author-link-icon {
+  font-size: .70em;
+  padding-left: 5px;
 }
 
 .library-link {
