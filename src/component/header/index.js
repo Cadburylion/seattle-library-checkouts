@@ -1,5 +1,6 @@
 import React from 'react'
 import Loader from '../loader/index.js'
+
 import './style.scss'
 
 let Header = (props) => {
@@ -12,12 +13,15 @@ let Header = (props) => {
       </h1>
 
       <h2 className='app-subtitle'>
-        {`What's Seattle reading`}?
+        {`View Seattle's library checkouts and discover new reads`}
       </h2>
       {props.fetching ?
         <Loader />
-        : undefined
+        : <Loader />
       }
+
+
+
     </div>
   )
 }

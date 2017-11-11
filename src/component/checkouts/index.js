@@ -1,4 +1,5 @@
 import React from 'react'
+import FontAwesome from 'react-fontawesome'
 import './style.scss'
 import * as stringClean from '../../lib/util.js'
 
@@ -32,6 +33,13 @@ let Checkouts = (props) => (
 
       </li>
     )}
+    <div className='up-arrow-icon'>
+      <FontAwesome
+        name='angle-up'
+      />
+    </div>
+
+    <div className='checkout-end-space'></div>
   </ul>
 )
 
