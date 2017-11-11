@@ -1,34 +1,16 @@
 @import '../../style/vars';
 
-main {
+.app-container {
   width: 95%;
   max-width: 640px;
   margin: 0 auto;
 }
 
-.app-title {
-  width: inherit;
-  max-width: inherit;
-  font-family: $font-cursive;
-  font-size: 3em;
-  text-shadow: 1px 1px 1px black;
-  background: $color-secondary;
-  position: fixed;
-  left: inherit;
-  border-bottom: 2px groove $color-white;
-  z-index: 1;
-}
-
-.title-first {
-  color: $color-white;
-  -webkit-text-stroke-color: $color-secondary;
-}
-
-.title-second {
-  color: $color-white;
-}
-
 .title-space {
   width: 100%;
-  height: 61px;
+  height: 73px;
+  display: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }

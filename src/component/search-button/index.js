@@ -3,7 +3,7 @@ import './style.scss'
 
 let SearchButton = (props) => (
   <div className={`search-button ${props.fetching ? 'selected' : ''}`}
-    onClick={props.handleSearch}>
+    onClick={()=>props.bookSearch(props.searchField)}>
     <p>{props.buttonName}</p>
   </div>
 )

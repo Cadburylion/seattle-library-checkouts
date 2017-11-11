@@ -1,0 +1,49 @@
+@import '../../style/vars';
+
+.header-container {
+  display: grid;
+  position: fixed;
+  width: inherit;
+  max-width: inherit;
+  grid-template-columns: 1fr 1fr 24px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "title title loader"
+    "subtitle subtitle loader";
+  background: $color-secondary;
+  padding-bottom: 5px;
+  border-bottom: 2px groove $color-white;
+  text-shadow: 1px 1px 1px black;
+  z-index: 1;
+}
+
+.app-title {
+  font-size: 2.5em;
+  font-family: $font-cursive;
+  grid-area: title;
+  justify-self: left;
+}
+
+.app-subtitle {
+  font-size: .8rem;
+  color: $color-white;
+  font-family: $font-normal;
+  grid-area: subtitle;
+  padding-left: 10px;
+  text-align: left;
+  align-self: end;
+}
+
+.loader {
+  grid-area: loader;
+  align-self: center ;
+}
+
+.title-first {
+  color: $color-white;
+  -webkit-text-stroke-color: $color-secondary;
+}
+
+.title-second {
+  color: $color-white;
+}

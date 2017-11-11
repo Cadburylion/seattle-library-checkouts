@@ -17,7 +17,7 @@ let Checkouts = (props) => (
         <p className='checkout-item-place-header cursive'> # </p>
       </li>
     {props.checkouts.map((item, i) =>
-      <li className='checkout-item cursor' key={i} onClick={() => props.bookSearch(item)}>
+      <li className='checkout-item cursor' key={i} onClick={(e) => props.bookSearch(e, item)}>
         <p className='checkout-item-title'>
             {item.title.split('/').splice(0, 1).join(' ')}
         </p>
