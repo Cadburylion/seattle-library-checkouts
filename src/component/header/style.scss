@@ -10,7 +10,7 @@
   grid-template-areas:
     "title title loader"
     "subtitle subtitle loader";
-  background: $color-secondary;
+  background: $color-primary;
   padding-bottom: 5px;
   border-bottom: 2px groove $color-white;
   text-shadow: 1px 1px 1px black;
@@ -41,7 +41,7 @@
 
 .title-first {
   color: $color-white;
-  -webkit-text-stroke-color: $color-secondary;
+  -webkit-text-stroke-color: $color-primary;
 }
 
 .title-second {

@@ -15,7 +15,7 @@
   align-items: center;
   padding: 10px;
   color: white;
-  border-top: .5px dashed $color-primary;
+  border-bottom: .5px dashed $color-secondary;
   text-align: left;
 }
 
@@ -24,7 +24,7 @@
   top: 70px;
   border-top: none;
   border-bottom: 2px groove $color-white;
-  background: $color-secondary;
+  background: $color-primary;
 }
 
 .checkout-item-title-header {
@@ -38,7 +38,7 @@
 }
 
 .checkout-item-place-header {
-  justify-self: center;
+  justify-self: right;
 }
 
 .checkout-item-creator {
@@ -54,7 +54,7 @@
 }
 
 .checkout-item-place {
-  justify-self: center;
+  justify-self: right;
   align-self: flex-start;
 }
 
@@ -66,11 +66,11 @@
   color: $color-white;
   font-size: 28px !important;
   cursor: pointer;
-  background-color: $color-secondary;
+  background-color: $color-primary;
   border-top: 2px solid $color-white;
 }
 
 .checkout-end-space {
-  height: 34px;
+  height: 33px;
   width: 100%;
 }

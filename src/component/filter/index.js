@@ -30,6 +30,19 @@ let Filter = (props) => (
     />
 
     <FontAwesome
+      className={`audiobook-icon ${props.typeSelected.audiobook ? 'selected' : ''}`}
+      name='headphones'
+    />
+
+    <CheckoutTypeButton
+      typeSelected={props.typeSelected.audiobook}
+      handleSelect={props.handleSelect}
+      classType={'audiobook'}
+      materialType={'AUDIOBOOK'}
+      buttonName={'Audiobooks'}
+    />
+
+    <FontAwesome
       className={`ebook-icon ${props.typeSelected.ebook ? 'selected' : '' }`}
       name='tablet'
     />
