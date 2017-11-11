@@ -47,3 +47,8 @@
 .title-second {
   color: $color-white;
 }
+
+#header-top {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}

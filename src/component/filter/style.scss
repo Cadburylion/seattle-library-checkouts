@@ -34,8 +34,10 @@ select {
   color: $color-primary;
   justify-self: right;
   align-self: center;
-  margin-right: 10px;
   text-shadow: 1px 1px 1px black;
+  margin-right: 100px;
+  opacity: 0;
+  transition: .35s ease-in-out;
 }
 
 .ebook {
@@ -47,8 +49,10 @@ select {
   color: $color-primary;
   justify-self: right;
   align-self: center;
-  margin-right: 10px;
   text-shadow: 1px 1px 1px black;
+  margin-right: 100px;
+  opacity: 0;
+  transition: .35s ease-in-out;
 }
 
 .magazine {
@@ -60,8 +64,10 @@ select {
   color: $color-primary;
   justify-self: right;
   align-self: center;
-  margin-right: 10px;
   text-shadow: 1px 1px 1px black;
+  margin-right: 100px;
+  opacity: 0;
+  transition: .35s ease-in-out;
 }
 
 .month-list, .year-list{
@@ -109,6 +115,13 @@ select {
 .selected {
   color: $color-white;
 }
+
+.fa.selected {
+  margin-right: 10px;
+  opacity: 1;
+}
+
+
 
 @keyframes loading-text-spin {
   from { transform: rotate(0deg); }
