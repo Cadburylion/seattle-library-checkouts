@@ -1,9 +1,5 @@
 @import '../../style/vars';
 
-ul, li {
-  list-style: none;
-}
-
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -14,116 +10,103 @@ select {
   width: 100%;
   display: grid;
   grid-template-rows: repeat(6, 50px);
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "books books"
-    "ebooks ebooks"
-    "magazines magazines"
-    "month quantity-slider"
-    "year quantity-number"
-    "search-field search-field";
+    "year month quantity-number"
+    "quantity-slider quantity-slider quantity-slider"
+    "books books books"
+    "ebooks ebooks ebooks"
+    "magazines magazines magazines"
+    "search-field search-field search-field";
   border-bottom: 2px groove $color-white;
-}
 
-.book {
-  grid-area: books;
-}
+  .month-list, .year-list{
+    color: white;
+    font-size: 1.5em;
+    font-family: $font-cursive;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: $color-primary;
+    background: $color-secondary;
+    text-shadow: 1px 1px 1px black;
+  }
 
-.book-icon {
-  grid-area: books;
-  color: $color-primary;
-  justify-self: right;
-  align-self: center;
-  text-shadow: 1px 1px 1px black;
-  margin-right: 100px;
-  opacity: 0;
-  transition: .35s ease-in-out;
-}
+  .year-list {
+    grid-area: year;
+    justify-self: left;
+  }
 
-.ebook {
-  grid-area: ebooks;
-}
+  .month-list {
+    grid-area: month;
+    justify-self: center;
+  }
 
-.ebook-icon {
-  grid-area: ebooks;
-  color: $color-primary;
-  justify-self: right;
-  align-self: center;
-  text-shadow: 1px 1px 1px black;
-  margin-right: 100px;
-  opacity: 0;
-  transition: .35s ease-in-out;
-}
+  .slider-quantity {
+    grid-area: quantity-number;
+    align-self: center;
+    justify-self: right;
+    padding-right: 10px;
+    color: $color-white;
+    font-size: 1.3em;
+    font-family: $font-cursive;
+    text-shadow: 1px 1px 1px black;
+  }
 
-.magazine {
-  grid-area: magazines;
-}
+  .slider {
+    grid-area: quantity-slider;
+    background: $color-secondary;
+    align-self: center;
+    padding-right: 10px;
+    padding-left: 10px;
 
-.magazine-icon {
-  grid-area: magazines;
-  color: $color-primary;
-  justify-self: right;
-  align-self: center;
-  text-shadow: 1px 1px 1px black;
-  margin-right: 100px;
-  opacity: 0;
-  transition: .35s ease-in-out;
-}
+  }
 
-.month-list, .year-list{
-  color: white;
-  border: $color-primary;
-  background: $color-secondary;
-  font-size: 1.5em;
-  font-family: $font-cursive;
-  padding-left: 10px;
-  text-shadow: 1px 1px 1px black;
-}
+  .book {
+    grid-area: books;
+  }
 
-.month-list {
-  grid-area: month;
-}
+  .ebook {
+    grid-area: ebooks;
+  }
 
-.year-list {
-  grid-area: year;
-}
+  .magazine {
+    grid-area: magazines;
+  }
 
-.slider {
-  grid-area: quantity-number;
-  background: $color-secondary;
-  align-self: center;
-  padding-right: 10px;
-  padding-left: 25px;
-}
+  .fa {
+    color: $color-primary;
+    justify-self: right;
+    align-self: center;
+    text-shadow: 1px 1px 1px black;
+    margin-right: 100px;
+    opacity: 0;
+    transition: .35s ease-in-out;
+  }
 
-.slider-quantity {
-  grid-area: quantity-slider;
-  align-self: center;
-  justify-self: right;
-  padding-right: 10px;
-  color: $color-white;
-  font-size: 1.5em;
-  font-family: $font-cursive;
-  text-shadow: 1px 1px 1px black;
-}
+  .book-icon {
+    grid-area: books;
+  }
 
-.search-form {
-  grid-area: search-field;
-  align-self: center;
-}
+  .ebook-icon {
+    grid-area: ebooks;
+  }
 
-.selected {
-  color: $color-white;
-}
+  .magazine-icon {
+    grid-area: magazines;
+  }
 
-.fa.selected {
-  margin-right: 10px;
-  opacity: 1;
-}
+  .search-form {
+    grid-area: search-field;
+    align-self: center;
+  }
 
+  .selected {
+    color: $color-white;
+  }
 
+  .fa.selected {
+    margin-right: 10px;
+    opacity: 1;
+  }
 
-@keyframes loading-text-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
