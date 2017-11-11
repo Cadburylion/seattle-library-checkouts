@@ -20,7 +20,7 @@
     "nav nav";
   align-items: normal;
   color: white;
-  background: $color-secondary;
+  background: $color-primary;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   padding: 10px;
@@ -108,7 +108,7 @@
   display: block;
   height: 100%;
   grid-area: book-description;
-  background: linear-gradient(to bottom, rgba(237, 239, 240, 0), rgba(237, 239, 240, 0) 90px, $color-secondary 120px);
+  background: linear-gradient(to bottom, rgba(237, 239, 240, 0), rgba(237, 239, 240, 0) 90px, $color-primary 120px);
 }
 
 .read-more {

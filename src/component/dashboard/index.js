@@ -24,12 +24,7 @@ export default class Query extends Component {
         year: '2017',
         quantity: 10,
       },
-      typeSelected: {
-        book: false,
-        song: false,
-        ebook: false,
-        magazine: false,
-      },
+      typeSelected: {},
     }
     this.bookNext = this.bookNext.bind(this)
     this.fetchTrue = this.fetchTrue.bind(this)
@@ -63,6 +58,11 @@ export default class Query extends Component {
     })
   }
 
+  searchLibrary(query){
+
+    fetch(``)
+  }
+
   bookSearch(e, book){
     e.preventDefault()
     let title = (typeof book === 'string') ? book : book.title
@@ -87,6 +87,8 @@ export default class Query extends Component {
     this.fetchLibrary(type)
   }
 
+
+
   handleChange(e){
     this.setState({
       searchField: e.target.value,
@@ -96,9 +98,6 @@ export default class Query extends Component {
   classToggle(selected){
     this.setState({
       typeSelected: {
-        book: false,
-        ebook: false,
-        magazine: false,
         [selected]: true,
       }
     })
@@ -106,11 +105,7 @@ export default class Query extends Component {
 
   resetSelected(){
     this.setState({
-      typeSelected: {
-        book: false,
-        ebook: false,
-        magazine: false,
-      }
+      typeSelected: {}
     })
   }
 
@@ -202,6 +197,7 @@ export default class Query extends Component {
               <Checkouts
                 checkouts={this.state.checkouts}
                 responseType={this.state.responseType}
+                typeSelected={this.state.typeSelected}
 
                 bookSearch={this.bookSearch}
                 scrollToTop={this.scrollToTop}

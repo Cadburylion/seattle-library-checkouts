@@ -16,6 +16,7 @@ select {
     "quantity-slider quantity-slider quantity-slider"
     "books books books"
     "ebooks ebooks ebooks"
+    "audiobooks audiobooks audiobooks"
     "magazines magazines magazines"
     "search-field search-field search-field";
   border-bottom: 2px groove $color-white;
@@ -27,7 +28,7 @@ select {
     padding-left: 10px;
     padding-right: 10px;
     border: $color-primary;
-    background: $color-secondary;
+    background: $color-primary;
     text-shadow: 1px 1px 1px black;
   }
 
@@ -55,7 +56,7 @@ select {
 
   .slider {
     grid-area: quantity-slider;
-    background: $color-secondary;
+    background: $color-primary;
     align-self: center;
     padding-right: 10px;
     padding-left: 10px;
@@ -64,18 +65,26 @@ select {
 
   .book {
     grid-area: books;
+    align-self: center;
   }
 
   .ebook {
     grid-area: ebooks;
+    align-self: center;
+  }
+
+  .audiobook {
+    grid-area: audiobooks;
+    align-self: center;
   }
 
   .magazine {
     grid-area: magazines;
+    align-self: center;
   }
 
   .fa {
-    color: $color-primary;
+    color: $color-secondary;
     justify-self: right;
     align-self: center;
     text-shadow: 1px 1px 1px black;
@@ -92,6 +101,10 @@ select {
     grid-area: ebooks;
   }
 
+  .audiobook-icon {
+    grid-area: audiobooks;
+  }
+
   .magazine-icon {
     grid-area: magazines;
   }
@@ -99,6 +112,8 @@ select {
   .search-form {
     grid-area: search-field;
     align-self: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .selected {

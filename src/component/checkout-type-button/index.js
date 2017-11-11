@@ -3,7 +3,7 @@ import './style.scss'
 
 let CheckoutTypeButton = (props) => (
   <div
-    className={props.typeSelected ? `btn ${props.classType} selected` : `btn ${props.classType}`}
+    className={`material-type-button ${props.classType} ${props.typeSelected ? 'selected' : ''}`}
     onClick={() => props.handleSelect(props.classType, props.materialType)}>
     {props.buttonName}
   </div>

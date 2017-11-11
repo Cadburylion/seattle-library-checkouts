@@ -1,17 +1,17 @@
 @import '../../style/vars';
 
-.btn {
+.material-type-button {
   display: flex;
-  justify-content: left;
+  // justify-content: left;
   font-size: 2em;
   padding-left: 10px;
-  align-items: center;
-  color: $color-primary;
+  // align-items: center;
+  color: $color-secondary;
   font-family: $font-cursive;
   cursor: pointer;
   text-shadow: 1px 1px 1px black;
 }
 
 .selected {
-  color: #fff;
+  color: $color-white;
 }
