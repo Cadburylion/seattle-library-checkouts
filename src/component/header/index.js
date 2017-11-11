@@ -13,7 +13,7 @@ let Header = (props) => {
       </h1>
 
       <h2 className='app-subtitle'>
-        {`View Seattle's library checkouts and discover new reads`}
+        {`View Seattle's library checkouts & discover new reads`}
       </h2>
       {props.fetching ?
         <Loader />

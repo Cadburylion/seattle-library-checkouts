@@ -9,3 +9,8 @@
   margin-right: 35px;
   animation: loading-text-spin infinite 1s linear;
 }
+
+@keyframes loading-text-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
