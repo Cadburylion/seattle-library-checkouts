@@ -6,7 +6,7 @@ import './style.scss'
 let Header = (props) => {
   return(
     <div className='header-container'>
-
+      <div id='header-top'></div>
       <h1 className='app-title'>
         <span className='title-first'>Seattle</span>
         <span className='title-second'>Reads</span>
@@ -17,10 +17,8 @@ let Header = (props) => {
       </h2>
       {props.fetching ?
         <Loader />
-        : <Loader />
+        : undefined
       }
-
-
 
     </div>
   )

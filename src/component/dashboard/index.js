@@ -4,6 +4,8 @@ import Header from '../header/index.js'
 import BookView from '../book-view/index.js'
 import Checkouts from '../checkouts/index.js'
 
+import {scroller} from 'react-scroll'
+
 import './style.scss'
 
 export default class Query extends Component {
@@ -164,6 +166,15 @@ export default class Query extends Component {
     }))
   }
 
+  scrollToTop(){
+    scroller.scrollTo('header-top', {
+      duration: 250,
+      delay: 0,
+      smooth: true,
+      offset: 0,
+    })
+  }
+
   render(){
     console.log('query state: ', this.state)
     return(
@@ -193,6 +204,7 @@ export default class Query extends Component {
                 responseType={this.state.responseType}
 
                 bookSearch={this.bookSearch}
+                scrollToTop={this.scrollToTop}
                 authorSearch={this.authorSearch}
               />
               : undefined

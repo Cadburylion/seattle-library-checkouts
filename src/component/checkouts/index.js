@@ -33,7 +33,7 @@ let Checkouts = (props) => (
 
       </li>
     )}
-    <div className='up-arrow-icon'>
+    <div className='up-arrow-icon' onClick={props.scrollToTop}>
       <FontAwesome
         name='angle-up'
       />
