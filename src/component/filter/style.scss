@@ -64,24 +64,12 @@ select {
   text-shadow: 1px 1px 1px black;
 }
 
-.song {
-  grid-area: songs;
-}
-
-.song-icon {
-  grid-area: songs;
-  color: $color-primary;
-  justify-self: right;
-  align-self: center;
-  margin-right: 10px;
-  text-shadow: 1px 1px 1px black;
-}
-
 .month-list, .year-list{
   color: white;
   border: $color-primary;
   background: $color-secondary;
   font-size: 1.5em;
+  font-family: $font-cursive;
   padding-left: 10px;
   text-shadow: 1px 1px 1px black;
 }
@@ -109,6 +97,7 @@ select {
   padding-right: 10px;
   color: $color-white;
   font-size: 1.5em;
+  font-family: $font-cursive;
   text-shadow: 1px 1px 1px black;
 }
 
@@ -116,7 +105,6 @@ select {
   grid-area: search-field;
   align-self: center;
 }
-
 
 .selected {
   color: $color-white;
