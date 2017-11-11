@@ -36,11 +36,20 @@ select {
     width: inherit;
     grid-area: year;
     justify-self: left;
+    border:0;
+    outline:0;
   }
 
   .month-list {
     grid-area: month;
     justify-self: center;
+    border:0;
+    outline:0;
+  }
+
+  .year-list:active, .mont-list:active {
+    border:0;
+    outline:0;
   }
 
   .slider-quantity {
