@@ -40,6 +40,7 @@ export default class Query extends Component {
     this.authorSearch = this.authorSearch.bind(this)
     this.handleSelect = this.handleSelect.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.resetSelected = this.resetSelected.bind(this)
     this.bookViewToggle = this.bookViewToggle.bind(this)
     this.quantitySelect = this.quantitySelect.bind(this)
   }
@@ -94,10 +95,19 @@ export default class Query extends Component {
     this.setState({
       typeSelected: {
         book: false,
-        ebooK: false,
+        ebook: false,
         magazine: false,
-        song: false,
         [selected]: true,
+      }
+    })
+  }
+
+  resetSelected(){
+    this.setState({
+      typeSelected: {
+        book: false,
+        ebook: false,
+        magazine: false,
       }
     })
   }
@@ -107,6 +117,7 @@ export default class Query extends Component {
     this.setState(prevState => ({
       options: {...prevState.options, year: value}
     }))
+    this.resetSelected()
   }
 
   monthSelect(e){
@@ -114,12 +125,14 @@ export default class Query extends Component {
     this.setState(prevState => ({
       options: {...prevState.options, month: value}
     }))
+    this.resetSelected()
   }
 
   quantitySelect(value){
     this.setState(prevState => ({
       options: {...prevState.options, quantity: value}
     }))
+    this.resetSelected()
   }
 
   authorSearch(name){
