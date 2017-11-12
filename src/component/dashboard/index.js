@@ -58,11 +58,6 @@ export default class Query extends Component {
     })
   }
 
-  searchLibrary(query){
-
-    fetch(``)
-  }
-
   bookSearch(e, book){
     e.preventDefault()
     let title = (typeof book === 'string') ? book : book.title
@@ -80,6 +75,13 @@ export default class Query extends Component {
     .then(() => {
       this.bookViewToggle()
     })
+  }
+
+  bookViewToggle(){
+    this.setState(prevState => ({
+      bookViewOpen: !prevState.bookViewOpen,
+      bookVersion: 0,
+    }))
   }
 
   handleSelect(classType, type){
@@ -142,13 +144,6 @@ export default class Query extends Component {
     })
   }
 
-  bookViewToggle(){
-    this.setState(prevState => ({
-      bookViewOpen: !prevState.bookViewOpen,
-      bookVersion: 0,
-    }))
-  }
-
   bookNext(){
     this.setState(prevState => ({
       bookVersion: prevState.bookVersion === 2 ? 0 : prevState.bookVersion + 1,
@@ -177,7 +172,7 @@ export default class Query extends Component {
 
         <Header fetching={this.state.fetching}/>
         <div className='title-space'></div>
-        {!this.state.bookViewOpen ?
+
           <div className='default-view'>
             <Filter
               options={this.state.options}
@@ -206,8 +201,6 @@ export default class Query extends Component {
               : undefined
             }
           </div>
-        : undefined
-      }
 
         {this.state.bookViewOpen ?
           <BookView
