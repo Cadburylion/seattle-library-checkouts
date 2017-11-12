@@ -48,11 +48,11 @@ let BookView = (props) => {
         name='arrow-right'
         />
 
-      </div>
-      <div className='book-description-container'>
+        <div className='book-description-container'>
         <p className='book-description'>{`${description} `}</p>
         <div className='fade-anchor'></div>
         <a className='read-more' href={volumeInfo.infoLink} target='_#'>Read More</a>
+        </div>
       </div>
     </div>
   )
