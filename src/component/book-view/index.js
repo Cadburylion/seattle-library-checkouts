@@ -18,7 +18,12 @@ let BookView = (props) => {
 
         <p className='version-counter'>{props.bookVersion + 1}/3</p>
 
-        <a className='library-link' href={`https://seattle.bibliocommons.com/v2/search?query=${checkoutString}&searchType=smart`} target='_#'>Library availability</a>
+        <a className='library-link' href={`https://seattle.bibliocommons.com/v2/search?query=${checkoutString}&searchType=smart`} target='_#'>
+          <span className={'library-icon'}>
+            <FontAwesome name='university' />
+          </span>
+          Check library
+        </a>
 
         <FontAwesome
           onClick={props.bookViewToggle}
